@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { convertCoordinateToVector } from "../convertCoordinateToVector";
 
 interface SingleCoastLineProps {
   coordinates: Array<[number, number]>;
@@ -11,15 +12,10 @@ export default function SingleCoastLine({
   radius,
   material,
 }: SingleCoastLineProps) {
-  const vertex = ([longitude, latitude]: [number, number], radius: number) => {
-    const lambda = (longitude * Math.PI) / 180;
-    const phi = (latitude * Math.PI) / 180;
+  const vertex = (location: [number, number], radius: number) => {
+    const vector = convertCoordinateToVector(location, radius);
 
-    return new THREE.Vector3(
-      radius * Math.cos(phi) * Math.cos(lambda),
-      radius * Math.sin(phi),
-      -radius * Math.cos(phi) * Math.sin(lambda)
-    );
+    return new THREE.Vector3(...vector);
   };
 
   const wireframe = (coordinates: Array<[number, number]>, radius: number) => {
@@ -27,10 +23,12 @@ export default function SingleCoastLine({
     const points = [] as Array<THREE.Vector3>;
 
     for (let i = 0; i < coordinates.length; i++) {
-      points.push(vertex(coordinates[i], radius));
+      const vector3 = vertex(coordinates[i], radius);
+      points.push(vector3);
     }
 
     geometry.setFromPoints(points);
+
     return geometry;
   };
 
