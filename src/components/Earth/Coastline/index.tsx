@@ -1,11 +1,8 @@
-import coastLineData from "@/assets/coastline.json";
 import SingleCoastLine from "./singleCoastLine";
-import { normalizeCoordinates } from "../normalizeCoordinates";
+import { useCoordinatesList } from "@/models/useCoordinatesList";
 
 export default function CoastLine({ radius }: { radius: number }) {
-  const coordinatesList = coastLineData.features.map((data) =>
-    normalizeCoordinates(data.geometry.coordinates as Array<[number, number]>)
-  );
+  const coordinatesList = useCoordinatesList();
 
   return (
     <>
