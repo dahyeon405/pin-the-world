@@ -1,3 +1,8 @@
 * {
   box-sizing: border-box;
+  font-family: "Clash Display", sans-serif;
+}
+
+body {
+  margin: 0;
 }
