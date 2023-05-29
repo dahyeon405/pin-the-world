@@ -1,17 +1,19 @@
-import Earth from "@/components/Earth";
 import { Canvas } from "@react-three/fiber";
 import styled from "styled-components";
-import { OrbitControls } from "@react-three/drei";
+import { CitiesBoard } from "@/components/CitiesBoard";
+import { EarthCanvas } from "@/components/EarthCanvas";
 
 export default function Home() {
   return (
     <HomeLayout>
       <HomeTitle>Pin the World</HomeTitle>
+      <CitiesBoardContainer>
+        <CitiesBoard />
+      </CitiesBoardContainer>
       <CanvasContainer>
         <Canvas camera={{ fov: 45, near: 0.1, far: 1000, position: [0, 0, 4] }}>
-          <OrbitControls />
           <pointLight position={[0, 0, 8]} />
-          <Earth />
+          <EarthCanvas />
         </Canvas>
       </CanvasContainer>
     </HomeLayout>
@@ -35,4 +37,12 @@ const CanvasContainer = styled.div`
   height: 100vh;
   position: fixed;
   top: 0px;
+`;
+
+const CitiesBoardContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
 `;
