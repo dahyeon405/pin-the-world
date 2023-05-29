@@ -28,7 +28,7 @@ export const useRotateCameraOnScroll = (
     scrollToCameraPositionMap[scrollPositionY] = targetVector;
     scrollPositions.push(scrollPositionY);
 
-    scrollPositions.sort();
+    scrollPositions.sort((a, b) => a - b);
   };
 
   const setCameraPositions = (positions: Record<number, VectorXYZ>) => {
@@ -40,7 +40,7 @@ export const useRotateCameraOnScroll = (
       Number
     ) as number[];
 
-    scrollPositions.sort();
+    scrollPositions.sort((a, b) => a - b);
   };
 
   const calculateCameraPosition = (currentScrollPositionY: number) => {
