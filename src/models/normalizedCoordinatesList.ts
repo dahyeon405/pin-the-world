@@ -27,10 +27,6 @@ const normalizeCoordinates = (coordinates: Array<[number, number]>) => {
   return normalizedCoordinates;
 };
 
-export const useCoordinatesList = () => {
-  const normalizedCoordinatesList = coastLineData.features.map((data) =>
-    normalizeCoordinates(data.geometry.coordinates as Array<[number, number]>)
-  );
-
-  return normalizedCoordinatesList;
-};
+export const normalizedCoordinatesList = coastLineData.features.map((data) =>
+  normalizeCoordinates(data.geometry.coordinates as Array<[number, number]>)
+);

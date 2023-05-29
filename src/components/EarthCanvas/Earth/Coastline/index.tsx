@@ -1,8 +1,8 @@
 import SingleCoastLine from "./singleCoastLine";
-import { useCoordinatesList } from "@/models/useCoordinatesList";
+import { normalizedCoordinatesList } from "@/models/normalizedCoordinatesList";
 
 export default function CoastLine({ radius }: { radius: number }) {
-  const coordinatesList = useCoordinatesList();
+  const coordinatesList = normalizedCoordinatesList;
 
   return (
     <>
