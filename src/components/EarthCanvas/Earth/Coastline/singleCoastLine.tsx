@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { convertCoordinateToVector } from "../../../../utils/convertCoordinateToVector";
+import { convertCoordinateToVector } from "@/utils/convertCoordinateToVector";
 
 interface SingleCoastLineProps {
   coordinates: Array<[number, number]>;
