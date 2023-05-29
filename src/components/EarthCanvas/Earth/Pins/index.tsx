@@ -1,5 +1,5 @@
 import { cityCoordinates } from "@/constants/cityCoordinates";
-import { convertCoordinateToVector } from "../convertCoordinateToVector";
+import { convertCoordinateToVector } from "../../../../utils/convertCoordinateToVector";
 import SinglePin from "./singlePin";
 
 export default function Pins({ radius }: { radius: number }) {
