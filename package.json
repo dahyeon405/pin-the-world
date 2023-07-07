@@ -12,15 +12,19 @@
   "dependencies": {
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
-    "@mui/styled-engine-sc": "^5.12.0",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "@react-three/drei": "^9.68.3",
     "@react-three/fiber": "^8.13.0",
     "@types/styled-components": "^5.1.26",
+    "framer-motion": "^10.12.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
     "styled-components": "^6.0.0-rc.1",
     "three": "^0.152.2"
+  },
+  "resolutions": {
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   },
   "devDependencies": {
     "@types/node": "^20.2.0",
