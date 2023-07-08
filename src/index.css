@@ -1,8 +1,9 @@
 * {
   box-sizing: border-box;
-  font-family: "Clash Display", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
