@@ -9,7 +9,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "yarn run build",
+    "predeploy": "yarn run build --base=/pin-the-world/",
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
