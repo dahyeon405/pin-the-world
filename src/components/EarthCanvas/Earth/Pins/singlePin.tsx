@@ -7,7 +7,7 @@ interface SinglePinProps {
 }
 
 export default function SinglePin({ position, scale }: SinglePinProps) {
-  const pin = useLoader(OBJLoader, "src/assets/starPin.obj");
+  const pin = useLoader(OBJLoader, "./starPin.obj");
 
   pin.traverse((obj: any) => {
     if (obj.isMesh) {
