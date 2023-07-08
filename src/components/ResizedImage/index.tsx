@@ -7,8 +7,6 @@ export const ResizedImage = ({
 }) => {
   const bucket_url = "https://pin-the-world.s3.ap-northeast-2.amazonaws.com/";
 
-  const original_url = bucket_url + imageName;
-
   const ext = imageName
     .split(".")
     [imageName.split(".").length - 1].toLowerCase();
