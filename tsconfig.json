@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["unplugin-obj/obj"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
