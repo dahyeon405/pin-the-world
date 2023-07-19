@@ -77,8 +77,8 @@ const HomeLayout = styled.div`
 `;
 
 const CanvasContainer = styled.div`
-  height: 70%;
-  width: 100%;
+  width: 100vw;
+  height: 100vw;
   position: fixed;
   left: 0rem;
   top: 8rem;
