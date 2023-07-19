@@ -1,17 +1,15 @@
 import { VectorXYZ } from "@/types";
 import { convertVectorToVectorXYZ, convertCoordinateToVector } from "@/utils";
 import { cityCoordinates } from "./cityCoordinates";
+import { citiesScrollMap } from "./citiesScrollMap";
+import { EARTH_RADIUS } from "./radius";
 
-const citiesScrollMap: Record<string, [number, number]> = {
-  Copenhagen: [3000, 6000],
-  Iceland: [9000, 12000],
-  Seoul: [15000, 18000],
-  "New York": [21000, 24000],
-};
+const cameraDistanceFromEarth = EARTH_RADIUS * 4;
 
-const radius = 4;
-
-const scrollTimelines: Record<number, VectorXYZ> = {};
+/**
+ * @description key: 스크롤 y값, value: 해당 스크롤 위치에서 카메라의 위치
+ */
+const scrollCameraPositionMap: Record<number, VectorXYZ> = {};
 
 const getCameraPositionForCoordinate = (
   coordinate: [number, number],
@@ -22,19 +20,19 @@ const getCameraPositionForCoordinate = (
   );
 };
 
-const makeScrollTimelines = () => {
+const makeScrollCameraPositionMap = () => {
   (Object.keys(citiesScrollMap) as string[]).forEach((city) => {
     let cityKey = city as keyof typeof cityCoordinates;
     const [start, end] = citiesScrollMap[city];
     const cameraPosition = getCameraPositionForCoordinate(
       cityCoordinates[cityKey] as [number, number],
-      radius
+      cameraDistanceFromEarth
     );
-    scrollTimelines[start] = cameraPosition;
-    scrollTimelines[end] = cameraPosition;
+    scrollCameraPositionMap[start] = cameraPosition;
+    scrollCameraPositionMap[end] = cameraPosition;
   });
 };
 
-makeScrollTimelines();
+makeScrollCameraPositionMap();
 
-export { scrollTimelines };
+export { scrollCameraPositionMap };

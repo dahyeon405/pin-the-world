@@ -2,7 +2,7 @@ import { useThree } from "@react-three/fiber";
 import { useRotateCameraOnScroll } from "@/hooks";
 import { Earth } from "./Earth";
 import { OrbitControls } from "@react-three/drei";
-import { scrollTimelines } from "@/constants/scrollTimelines";
+import { scrollCameraPositionMap, EARTH_RADIUS } from "@/constants";
 
 export const EarthCanvas = () => {
   const { camera } = useThree();
@@ -12,11 +12,11 @@ export const EarthCanvas = () => {
     camera
   );
 
-  setCameraPositions(scrollTimelines);
+  setCameraPositions(scrollCameraPositionMap);
 
   return (
     <>
-      <Earth radius={1} />
+      <Earth radius={EARTH_RADIUS} />
       <OrbitControls
         enableZoom={false}
         enableDamping={false}
