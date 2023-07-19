@@ -3,13 +3,14 @@ import styled from "styled-components";
 import { CitiesBoard } from "@/components/CitiesBoard";
 import { EarthCanvas } from "@/components/EarthCanvas";
 import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
 
 export default function Home() {
   return (
     <>
       <Header>
         <Link to="/">
-          <Logo>dahyeon</Logo>
+          <Logo />
         </Link>
         <MenuButton>Menu</MenuButton>
       </Header>
@@ -34,22 +35,13 @@ export default function Home() {
 const Header = styled.header`
   position: fixed;
   top: 0rem;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   font-size: 1.25rem;
   width: 100%;
   z-index: 3;
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(2px);
   height: 3.5rem;
-`;
-
-const Logo = styled.span`
-  position: absolute;
-  left: 1.5rem;
-  top: 1rem;
-  cursor: pointer;
-  font-family: "Clash Display";
-  backdrop-filter: invert(70%);
 `;
 
 const MenuButton = styled.button`
