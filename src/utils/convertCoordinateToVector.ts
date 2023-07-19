@@ -1,7 +1,17 @@
+import { Coordinate, Vector } from "@/types";
+
+/**
+ *
+ * @param coordinate [경도, 위도]
+ * @param radius 반지름
+ * @returns 반지름을 반영해 계산한 좌표값 [x, y, z]
+ */
 export const convertCoordinateToVector = (
-  [longitude, latitude]: [number, number],
+  coordinate: Coordinate,
   radius: number
-) => {
+): Vector => {
+  const [longitude, latitude] = coordinate;
+
   const lambda = (longitude * Math.PI) / 180;
   const phi = (latitude * Math.PI) / 180;
 

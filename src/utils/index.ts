@@ -1,2 +1,2 @@
-export * from "./convertArrayToVector";
+export * from "./convertVectorToVectorXYZ";
 export * from "./convertCoordinateToVector";

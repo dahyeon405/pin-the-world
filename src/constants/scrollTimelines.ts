@@ -1,5 +1,5 @@
 import { VectorXYZ } from "@/types";
-import { convertArrayToVector, convertCoordinateToVector } from "@/utils";
+import { convertVectorToVectorXYZ, convertCoordinateToVector } from "@/utils";
 import { cityCoordinates } from "./cityCoordinates";
 
 const citiesScrollMap: Record<string, [number, number]> = {
@@ -17,7 +17,9 @@ const getCameraPositionForCoordinate = (
   coordinate: [number, number],
   radius: number
 ) => {
-  return convertArrayToVector(convertCoordinateToVector(coordinate, radius));
+  return convertVectorToVectorXYZ(
+    convertCoordinateToVector(coordinate, radius)
+  );
 };
 
 const makeScrollTimelines = () => {
