@@ -1,6 +1,6 @@
 export const citiesScrollMap: Record<string, [number, number]> = {
-  Copenhagen: [3000, 6000],
-  Iceland: [9000, 12000],
-  Seoul: [15000, 18000],
-  "New York": [21000, 24000],
+  Copenhagen: [2000, 5000],
+  Iceland: [6000, 8000],
+  Seoul: [9000, 12000],
+  "New York": [13000, 17000],
 };

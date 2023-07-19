@@ -69,7 +69,7 @@ const HomeLayout = styled.div`
   background: linear-gradient(
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 1) 3%,
-    rgba(255, 235, 138, 1) 41%,
+    rgba(199, 210, 154, 1) 41%,
     rgba(104, 203, 192, 1) 63%,
     rgba(215, 151, 251, 1) 81%,
     rgba(251, 162, 151, 1) 93%

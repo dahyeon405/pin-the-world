@@ -1,6 +1,7 @@
 import { CopenhagenBoard } from "./CopenhagenBoard";
 import { styled } from "styled-components";
 import { IcelandBoard } from "./IcelandBoard";
+import { citiesScrollMap } from "@/constants";
 
 export const CitiesBoard = () => {
   return (
@@ -15,21 +16,23 @@ export const CitiesBoard = () => {
   );
 };
 
+const scrollSpare = 500;
+
 const CitiesBoardContainer = styled.section`
   width: 100%;
   max-width: 900px;
-  height: 25000px;
+  height: 21000px;
   position: relative;
 `;
 
 const CopenhagenBoardContainer = styled.div`
   width: 100%;
   position: absolute;
-  top: 3500px;
+  top: ${citiesScrollMap.Copenhagen[0] + scrollSpare}px;
 `;
 
 const IcelandBoardContainer = styled.div`
   width: 100%;
   position: absolute;
-  top: 9500px;
+  top: ${citiesScrollMap.Iceland[0] + scrollSpare}px;
 `;
