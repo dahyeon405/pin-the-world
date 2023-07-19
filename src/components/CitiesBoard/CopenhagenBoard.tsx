@@ -84,6 +84,7 @@ export const CopenhagenBoard = () => {
 
 const Contents = styled.div`
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   margin-top: -5px;
   padding: 1rem;
   position: relative;
@@ -110,6 +111,7 @@ const Button = styled.button`
   border-radius: 1rem;
   font-family: "Clash Display";
   backdrop-filter: invert(100%);
+  -webkit-backdrop-filter: invert(100%);
   color: white;
   display: block;
   margin: 0 auto;
