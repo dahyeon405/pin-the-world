@@ -1,9 +1,11 @@
 export const ResizedImage = ({
   imageName,
   style,
+  alt,
 }: {
   imageName: string;
   style?: any;
+  alt?: string;
 }) => {
   const bucket_url = "https://pin-the-world.s3.ap-northeast-2.amazonaws.com/";
 
@@ -17,5 +19,5 @@ export const ResizedImage = ({
 
   const srcSet = image_1x + " 1x," + image_2x + " 2x";
 
-  return <img srcSet={srcSet} src={image_2x} style={style} />;
+  return <img srcSet={srcSet} src={image_2x} style={style} alt={alt} />;
 };
