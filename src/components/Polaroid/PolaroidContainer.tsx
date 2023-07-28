@@ -59,6 +59,6 @@ const PolaroidBackground = styled.div`
   justify-content: center;
   padding: 12px;
   background-color: white;
-  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.1));
   position: relative;
 `;
