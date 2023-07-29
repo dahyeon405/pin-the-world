@@ -1,6 +1,6 @@
 import { VectorXYZ } from "@/types";
 import { convertVectorToVectorXYZ, convertCoordinateToVector } from "@/utils";
-import { cityCoordinates } from "./cityCoordinates";
+import { Cities, cityCoordinates } from "./cityCoordinates";
 import { citiesScrollMap } from "./citiesScrollMap";
 import { EARTH_RADIUS } from "./radius";
 
@@ -22,8 +22,8 @@ const getCameraPositionForCoordinate = (
 
 const makeScrollCameraPositionMap = () => {
   (Object.keys(citiesScrollMap) as string[]).forEach((city) => {
-    let cityKey = city as keyof typeof cityCoordinates;
-    const [start, end] = citiesScrollMap[city];
+    let cityKey = city as Cities;
+    const [start, end] = citiesScrollMap[cityKey];
     const cameraPosition = getCameraPositionForCoordinate(
       cityCoordinates[cityKey] as [number, number],
       cameraDistanceFromEarth

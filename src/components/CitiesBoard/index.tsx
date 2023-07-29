@@ -21,7 +21,7 @@ const scrollSpare = 500;
 const CitiesBoardContainer = styled.section`
   width: 100%;
   max-width: 900px;
-  height: 21000px;
+  height: 7500px;
   position: relative;
 `;
 

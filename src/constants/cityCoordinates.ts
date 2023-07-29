@@ -7,3 +7,5 @@ export const cityCoordinates = {
   "New York": [-73.990494, 40.7569545],
   Seoul: [126.9779692, 37.566535],
 } as const;
+
+export type Cities = keyof typeof cityCoordinates;

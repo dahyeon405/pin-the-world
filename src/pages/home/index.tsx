@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import styled from "styled-components";
-import { CitiesBoard } from "@/components/CitiesBoard";
 import { EarthCanvas } from "@/components/EarthCanvas";
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
+import { CityPolaroidBoard } from "@/components/Polaroid/CityPolaroidBoard";
 
 export default function Home() {
   return (
@@ -24,9 +24,7 @@ export default function Home() {
             <EarthCanvas />
           </Canvas>
         </CanvasContainer>
-        <CitiesBoardContainer>
-          <CitiesBoard />
-        </CitiesBoardContainer>
+        <CityPolaroidBoard></CityPolaroidBoard>
       </HomeLayout>
     </>
   );
@@ -74,6 +72,7 @@ const HomeLayout = styled.div`
     rgba(215, 151, 251, 1) 81%,
     rgba(251, 162, 151, 1) 93%
   );
+  height: 8000px;
 `;
 
 const CanvasContainer = styled.div`
@@ -82,10 +81,4 @@ const CanvasContainer = styled.div`
   position: fixed;
   left: 0rem;
   top: 8rem;
-`;
-
-const CitiesBoardContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
 `;
