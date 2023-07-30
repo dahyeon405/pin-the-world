@@ -44,6 +44,8 @@ export const useRotateCameraOnScroll = (
   };
 
   const calculateCameraPosition = (currentScrollPositionY: number) => {
+    if (currentScrollPositionY < 0) return scrollToCameraPositionMap[0]
+
     const currentScrollPositionIdx = scrollPositions.findIndex((scrollPos) => {
       if (scrollPos > currentScrollPositionY) return true;
     });
