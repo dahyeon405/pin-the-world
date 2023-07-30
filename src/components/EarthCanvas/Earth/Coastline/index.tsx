@@ -1,6 +1,6 @@
 import SingleCoastLine from "./singleCoastLine";
 import { normalizeCoordinates } from "@/utils";
-import coastLineData from "@/assets/coastline.json";
+import coastLineData from "@/assets/coastline_small.json";
 
 export default function CoastLine({ radius }: { radius: number }) {
   const coordinatesList = coastLineData.features.map((data) =>
