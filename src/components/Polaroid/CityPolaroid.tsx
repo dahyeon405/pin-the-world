@@ -14,7 +14,7 @@ export function CityPolaroid({
   height: number;
 }) {
   return (
-    <PolaroidPositioner positionTop={positionTop}>
+    <PolaroidPositioner $positionTop={positionTop}>
       <PolaroidContainerParent height={height}>
         <CitiesPolaroidContainer>
           <TitleSlideIn>{cityName}</TitleSlideIn>
@@ -25,9 +25,9 @@ export function CityPolaroid({
   );
 }
 
-const PolaroidPositioner = styled.div<{ positionTop: number }>`
+const PolaroidPositioner = styled.div<{ $positionTop: number }>`
   position: absolute;
-  top: ${(props) => props.positionTop}px;
+  top: ${(props) => props.$positionTop}px;
   left: 0px;
   width: 100%;
 `;

@@ -16,6 +16,7 @@ export function CityPolaroidBoard() {
             cityName={city}
             positionTop={citiesScrollMap[city][0] + 500}
             height={800}
+            key={city}
           ></CityPolaroid>
         );
       })}
