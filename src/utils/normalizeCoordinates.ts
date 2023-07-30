@@ -1,5 +1,3 @@
-import coastLineData from "@/assets/coastline.json";
-
 const isCoordinates = (element: any): element is [number, number] => {
   return (
     Array.isArray(element) &&
@@ -8,7 +6,7 @@ const isCoordinates = (element: any): element is [number, number] => {
   );
 };
 
-const normalizeCoordinates = (coordinates: Array<[number, number]>) => {
+export const normalizeCoordinates = (coordinates: Array<[number, number]>) => {
   const normalizedCoordinates: Array<[number, number]> = [];
 
   coordinates.forEach((coordinate) => {
@@ -27,6 +25,3 @@ const normalizeCoordinates = (coordinates: Array<[number, number]>) => {
   return normalizedCoordinates;
 };
 
-export const normalizedCoordinatesList = coastLineData.features.map((data) =>
-  normalizeCoordinates(data.geometry.coordinates as Array<[number, number]>)
-);

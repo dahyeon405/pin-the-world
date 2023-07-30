@@ -10,7 +10,7 @@ export function CityPolaroidBoard() {
   return (
     <>
       {Object.keys(citiesScrollMap).map((city) => {
-        if (!isCity(city)) return <div>"뭔가 이상"</div>;
+        if (!isCity(city)) return <></>;
         return (
           <CityPolaroid
             cityName={city}
