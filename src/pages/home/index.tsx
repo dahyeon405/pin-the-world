@@ -24,7 +24,7 @@ export default function Home() {
             <EarthCanvas />
           </Canvas>
         </CanvasContainer>
-        <CityPolaroidBoard></CityPolaroidBoard>
+        <CityPolaroidBoard />
       </HomeLayout>
     </>
   );
@@ -72,7 +72,7 @@ const HomeLayout = styled.div`
     rgba(215, 151, 251, 1) 81%,
     rgba(251, 162, 151, 1) 93%
   );
-  height: 8000px;
+  height: 8500px;
 `;
 
 const CanvasContainer = styled.div`

@@ -10,12 +10,12 @@ export function CityPolaroidBoard() {
   return (
     <>
       {Object.keys(citiesScrollMap).map((city) => {
-        if (!isCity(city)) return <></>;
+        if (!isCity(city)) return;
         return (
           <CityPolaroid
             cityName={city}
-            positionTop={citiesScrollMap[city][0] + 500}
-            height={800}
+            scrollStart={citiesScrollMap[city][0]}
+            scrollHeight={800}
             key={city}
           ></CityPolaroid>
         );

@@ -1,51 +1,60 @@
 import { polaroidsMap } from "@/constants/cityPolaroid";
 import { Polaroid } from "./Polaroid";
 import styled from "styled-components";
-import { TitleSlideIn } from "../atoms";
 import { Cities } from "@/constants";
+import { useEffect, useState } from "react";
+import { useScroll } from "@/hooks";
+import { AnimatePresence, motion } from "framer-motion";
 
 export function CityPolaroid({
   cityName,
-  positionTop,
-  height,
+  scrollStart,
+  scrollHeight,
 }: {
   cityName: Cities;
-  positionTop: number;
-  height: number;
+  scrollStart: number;
+  scrollHeight: number;
 }) {
+  const { y: scrollY } = useScroll(300);
+
+  const [isShown, setIsShown] = useState(false);
+
+  useEffect(() => {
+    if (scrollY > scrollStart && scrollY < scrollHeight + scrollStart) {
+      setIsShown(true);
+    } else setIsShown(false);
+  }, [scrollY]);
+
   return (
-    <PolaroidPositioner $positionTop={positionTop}>
-      <PolaroidContainerParent height={height}>
-        <CitiesPolaroidContainer>
-          <TitleSlideIn>{cityName}</TitleSlideIn>
+    <AnimatePresence>
+      {isShown && (
+        <CitiesPolaroidContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Title>{cityName}</Title>
           <Polaroid polaroidList={polaroidsMap[cityName]} size={300}></Polaroid>
         </CitiesPolaroidContainer>
-      </PolaroidContainerParent>
-    </PolaroidPositioner>
+      )}
+    </AnimatePresence>
   );
 }
 
-const PolaroidPositioner = styled.div<{ $positionTop: number }>`
-  position: absolute;
-  top: ${(props) => props.$positionTop}px;
-  left: 0px;
-  width: 100%;
-`;
-
-const PolaroidContainerParent = styled.div<{ height: number }>`
-  position: relative;
-  height: ${(props) => props.height}px;
-`;
-
-const CitiesPolaroidContainer = styled.div`
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
+const CitiesPolaroidContainer = styled(motion.div)`
+  position: fixed;
+  top: 80px;
   margin: 0 auto;
   width: 100%;
-  top: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+`;
+
+const Title = styled(motion.div)`
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: -16px;
+  font-family: "Clash Display";
 `;
