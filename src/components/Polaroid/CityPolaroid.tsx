@@ -1,10 +1,10 @@
 import { polaroidsMap } from "@/constants/cityPolaroid";
 import { Polaroid } from "./Polaroid";
-import styled from "styled-components";
 import { Cities } from "@/constants";
 import { useEffect, useState } from "react";
 import { useScroll } from "@/hooks";
 import { AnimatePresence, motion } from "framer-motion";
+import { Flex, Text } from "@chakra-ui/react";
 
 export function CityPolaroid({
   cityName,
@@ -28,33 +28,28 @@ export function CityPolaroid({
   return (
     <AnimatePresence>
       {isShown && (
-        <CitiesPolaroidContainer
+        <Flex
+          as={motion.div}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          pos="fixed"
+          top="20"
+          align="center"
+          direction="column"
+          width="100%"
         >
-          <Title>{cityName}</Title>
+          <Text
+            fontSize="5xl"
+            fontWeight="300"
+            mb="-5"
+            fontFamily="Clash Display"
+          >
+            {cityName}
+          </Text>
           <Polaroid polaroidList={polaroidsMap[cityName]} size={300}></Polaroid>
-        </CitiesPolaroidContainer>
+        </Flex>
       )}
     </AnimatePresence>
   );
 }
-
-const CitiesPolaroidContainer = styled(motion.div)`
-  position: fixed;
-  top: 80px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-`;
-
-const Title = styled(motion.div)`
-  font-size: 3.5rem;
-  font-weight: 300;
-  margin-bottom: -16px;
-  font-family: "Clash Display";
-`;

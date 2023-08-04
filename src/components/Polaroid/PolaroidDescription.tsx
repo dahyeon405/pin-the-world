@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo } from "react";
 import { PolaroidContext } from "./PolaroidContainer";
-import styled from "styled-components";
+import { Text } from "@chakra-ui/react";
 
 export function PolaroidDescription() {
   const polaroidContext = useContext(PolaroidContext);
@@ -20,15 +20,16 @@ export function PolaroidDescription() {
       .description;
   }, [polaroidContext?.currentIndex]);
 
-  return <Description>{description}</Description>;
+  return (
+    <Text
+      color="black"
+      h="16"
+      m="3"
+      fontSize="xs"
+      whiteSpace="pre-line"
+      textAlign="center"
+    >
+      {description}
+    </Text>
+  );
 }
-
-const Description = styled.div`
-  color: black;
-  height: 64px;
-  font-weight: 300;
-  font-size: 11px;
-  white-space: pre-line;
-  text-align: center;
-  margin: 12px;
-`;

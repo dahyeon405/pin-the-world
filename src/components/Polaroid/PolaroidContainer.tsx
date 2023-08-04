@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useState } from "react";
-import styled from "styled-components";
+import { Flex } from "@chakra-ui/react";
 
 export interface PolaroidContextValue {
   polaroidList?: PolaroidItem[];
@@ -41,24 +41,19 @@ export function PolaroidContainer({
   };
 
   return (
-    <PolaroidBackground>
+    <Flex
+      direction="column"
+      justify="center"
+      pos="relative"
+      backgroundColor="white"
+      p="3"
+      filter="drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.1))"
+    >
       <PolaroidContext.Provider
         value={{ currentIndex, onNext, onPrev, polaroidList, size }}
       >
         {children}
       </PolaroidContext.Provider>
-    </PolaroidBackground>
+    </Flex>
   );
 }
-
-const PolaroidBackground = styled.div`
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 12px;
-  background-color: white;
-  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.1));
-  position: relative;
-`;

@@ -1,7 +1,7 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useMemo } from "react";
 import { PolaroidContext } from "./PolaroidContainer";
 import { ResizedImage } from "../ResizedImage";
-import styled from "styled-components";
+import { Box, Flex } from "@chakra-ui/react";
 
 export function PolaroidImage() {
   const polaroidContext = useContext(PolaroidContext);
@@ -10,6 +10,10 @@ export function PolaroidImage() {
   const previousIndex = useRef(0);
 
   const imageListRef = useRef<HTMLDivElement>(null);
+
+  const imageSize = useMemo(() => {
+    return polaroidContext?.size ?? 0;
+  }, [polaroidContext?.size]);
 
   useEffect(() => {
     const currentIndex = polaroidContext?.currentIndex;
@@ -33,19 +37,28 @@ export function PolaroidImage() {
         duration: 1000,
         fill: "forwards",
         easing: "ease",
-      }
+      },
     );
 
     previousIndex.current = polaroidContext?.currentIndex ?? 0;
   }, [polaroidContext?.currentIndex]);
 
   return (
-    <ImageContainer size={polaroidContext?.size ?? 0}>
-      <ImageList ref={imageListRef}>
+    <Box
+      width={`${imageSize}px`}
+      height={`${imageSize}px`}
+      overflow="hidden"
+      boxShadow="0px 0px 5px 2px rgba(0, 0, 0, 0.09) inset"
+    >
+      <Flex ref={imageListRef} width="100%" height="100%">
         {isCompounded &&
           polaroidContext.polaroidList?.map((item, index) => {
             return (
-              <Image size={polaroidContext?.size ?? 0} key={index}>
+              <Box
+                minWidth={`${imageSize}px`}
+                minHeight={`${imageSize}px`}
+                key={index}
+              >
                 <ResizedImage
                   imageName={item.imageName}
                   alt={item.alt}
@@ -56,30 +69,10 @@ export function PolaroidImage() {
                     height: "100%",
                   }}
                 />
-              </Image>
+              </Box>
             );
           })}
-      </ImageList>
-    </ImageContainer>
+      </Flex>
+    </Box>
   );
 }
-
-const ImageContainer = styled.div<{ size: number }>`
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.09) inset;
-
-  overflow: hidden;
-`;
-
-const ImageList = styled.div`
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-`;
-
-const Image = styled.div<{ size: number }>`
-  min-width: ${(props) => props.size}px;
-  min-height: ${(props) => props.size}px;
-`;

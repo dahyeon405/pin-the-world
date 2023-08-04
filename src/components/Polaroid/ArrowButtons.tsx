@@ -1,8 +1,8 @@
 import { useContext, useMemo } from "react";
 import { PolaroidContext } from "./PolaroidContainer";
-import styled from "styled-components";
 import arrowLeft from "@/assets/icons/arrow-left.svg";
 import arrowRight from "@/assets/icons/arrow-right.svg";
+import { IconButton, Flex } from "@chakra-ui/react";
 
 export function ArrowButtons() {
   const polaroidContext = useContext(PolaroidContext);
@@ -12,41 +12,35 @@ export function ArrowButtons() {
   }, [polaroidContext?.polaroidList]);
 
   return (
-    <ArrowButtonsContainer size={polaroidContext?.size ?? 0}>
-      <ArrowButton
+    <Flex
+      width={`${polaroidContext?.size ?? 0}px`}
+      justify="space-between"
+      pos="absolute"
+      top="162px"
+      px="6px"
+    >
+      <IconButton
+        size="s"
+        isRound={true}
         onClick={polaroidContext?.onPrev}
-        disabled={polaroidContext?.currentIndex === 0}
-      >
-        <img src={arrowLeft} />
-      </ArrowButton>
-      <ArrowButton
+        visibility={polaroidContext?.currentIndex === 0 ? "hidden" : undefined}
+        icon={<img src={arrowLeft} />}
+        aria-label="to previous image"
+        backgroundColor="rgba(255, 255, 255, 0.7)"
+      />
+      <IconButton
+        size="s"
+        isRound={true}
         onClick={polaroidContext?.onNext}
-        disabled={polaroidContext?.currentIndex === polaroidListLength - 1}
-      >
-        <img src={arrowRight} />
-      </ArrowButton>
-    </ArrowButtonsContainer>
+        visibility={
+          polaroidContext?.currentIndex === polaroidListLength - 1
+            ? "hidden"
+            : undefined
+        }
+        icon={<img src={arrowRight} />}
+        aria-label="to next image"
+        backgroundColor="rgba(255, 255, 255, 0.7)"
+      />
+    </Flex>
   );
 }
-
-const ArrowButton = styled.button<{ disabled: boolean }>`
-  border-radius: 100px;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-  visibility: ${(props) => (props.disabled ? "hidden" : "")};
-`;
-
-const ArrowButtonsContainer = styled.div<{ size: number }>`
-  width: ${(props) => props.size}px;
-  position: absolute;
-  top: 162px;
-  padding: 0px 6px;
-  display: flex;
-  justify-content: space-between;
-`;
