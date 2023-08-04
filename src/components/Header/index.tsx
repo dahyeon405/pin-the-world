@@ -13,6 +13,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       px="6"
       py="4"
       justify="space-between"
+      backdropFilter="blur(2px)"
     >
       <Link to="/">
         <Logo />
