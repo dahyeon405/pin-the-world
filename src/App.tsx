@@ -1,14 +1,11 @@
-import { BrowserRouter } from "react-router-dom";
-import { Home } from "@/pages/home";
+import { Outlet } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme.ts";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>
+      <Outlet />
     </ChakraProvider>
   );
 }
