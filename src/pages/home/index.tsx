@@ -1,13 +1,21 @@
 import { Canvas } from "@react-three/fiber";
 import { EarthCanvas } from "@/components/EarthCanvas";
 import { CityPolaroidBoard } from "@/components/Polaroid/CityPolaroidBoard";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, useDisclosure } from "@chakra-ui/react";
 import { Header } from "@/components/Header";
+import { Menu } from "@/components/Menu";
 
-export function Home() {
+export default function Home() {
+  const {
+    isOpen: isMenuOpen,
+    onOpen: onMenuOpen,
+    onClose: onMenuClose,
+  } = useDisclosure();
+
   return (
     <>
-      <Header />
+      <Header onMenuClick={onMenuOpen} />
+      <Menu isOpen={isMenuOpen} onClose={onMenuClose} />
       <Box
         pt="16"
         h="8500px"

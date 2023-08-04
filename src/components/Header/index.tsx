@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { Box, Flex } from "@chakra-ui/react";
 
-export function Header() {
+export function Header({ onMenuClick }: { onMenuClick: () => void }) {
   return (
     <Flex
       pos="fixed"
@@ -17,7 +17,13 @@ export function Header() {
       <Link to="/">
         <Logo />
       </Link>
-      <Box as="button" my="auto" fontFamily="Clash Display" lineHeight="24px">
+      <Box
+        as="button"
+        my="auto"
+        fontFamily="Clash Display"
+        lineHeight="24px"
+        onClick={onMenuClick}
+      >
         Menu
       </Box>
     </Flex>
