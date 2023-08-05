@@ -16,7 +16,9 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       backdropFilter="blur(2px)"
     >
       <Link to="/">
-        <Logo />
+        <Box height="100%">
+          <Logo />
+        </Box>
       </Link>
       <Box
         as="button"
