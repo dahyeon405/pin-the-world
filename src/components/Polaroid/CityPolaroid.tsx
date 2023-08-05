@@ -15,7 +15,7 @@ export function CityPolaroid({
   scrollStart: number;
   scrollHeight: number;
 }) {
-  const { y: scrollY } = useScroll(300);
+  const { y: scrollY } = useScroll(100);
 
   const [isShown, setIsShown] = useState(false);
 
