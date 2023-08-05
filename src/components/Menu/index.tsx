@@ -36,7 +36,6 @@ export function Menu({
               </AccordionPanel>
             </MenuAccordionItem>
           </Accordion>
-          <MenuItem>music curations</MenuItem>
           <Link to={"/about"}>
             <MenuItem>about</MenuItem>
           </Link>
