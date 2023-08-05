@@ -21,13 +21,14 @@ const copenhagenPolaroid = [
   {
     imageName: "IMG_6172.JPG",
     description: `
-    발길 닿는 곳마다 내 집으로 삼고 싶은 곳들이 잔뜩
+    발길 닿는 곳마다
+    내 집으로 삼고 싶은 곳들이 잔뜩이었다.
     `,
   },
   {
     imageName: "IMG_7702.png",
     description: `
-    덴마크 그립다.
+    그리운 덴마크 🥹
     `,
   },
 ];
@@ -63,24 +64,26 @@ const newYorkPolaroid = [
     imageName: "C0488T01.JPG",
     description: `
     뉴욕🗽
-    큰 기대 없이 갔는데 너무 좋았다.
+    2022년 여름
     `,
   },
   {
     imageName: "C0669T01.JPG",
     description: `
     베이글이 맛있으면 얼마나 맛있어? 했는데
-    진짜 맛있었고`,
+    진~짜 맛있었다`,
   },
   {
     imageName: "C0814T01.JPG",
     description: `
-    뉴욕 미술관 산책도 좋았고`,
+    공간이 더 기억에 남는
+    뉴욕 미술관 산책`,
   },
   {
     imageName: "C0657T01.JPG",
     description: `
-    타이포그래피를 발견하는 재미도 있었다
+    그 때 타이포그래피에 꽂혀서
+    타이포그래피를 발견하고 다니는 재미도 쏠쏠했다
     `,
   },
   {
@@ -102,7 +105,7 @@ const seoulPolaroid = [
     imageName: "IMG_4662.JPG",
     description: `
     특히 봄 ~ 가을까지의 서울 풍경은
-    그 어느 도시에 견주어도 손색없이 아름답다`,
+    그 어느 도시에 견주어도 손색없이 아름다운 것 같다`,
   },
   {
     imageName: "IMG_4679.JPG",
