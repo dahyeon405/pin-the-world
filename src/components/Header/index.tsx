@@ -1,5 +1,5 @@
 import { Logo } from "./Logo";
-import { Box, Flex, Button } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom";
 
 export function Header({ onMenuClick }: { onMenuClick: () => void }) {
@@ -24,9 +24,9 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       justify="space-between"
       backdropFilter="blur(2px)"
     >
-      <Button height={'100%'} backgroundColor={'transparent'} px="0" onClick={onClickLogo}>
+      <Box as="button" height={'100%'} backgroundColor={'transparent'} px="0" onClick={onClickLogo}>
         <Logo />
-      </Button>
+      </Box>
       <Box
         as="button"
         my="auto"
