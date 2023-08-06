@@ -32,12 +32,10 @@ export default function AboutPage() {
         >
           <ResizedImage
             imageName={"thumbnailyoutube.png"}
-            style={{
-              width: "60px",
-              height: "60px",
-              borderRadius: "100px",
-              objectFit: "cover",
-            }}
+            width="60px"
+            height="60px"
+            borderRadius="100px"
+            objectFit="cover"
             alt="youtube thumbnail"
           />
 

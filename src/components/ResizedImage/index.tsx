@@ -1,23 +1,26 @@
-export const ResizedImage = ({
-  imageName,
-  style,
-  alt,
-}: {
-  imageName: string;
-  style?: any;
-  alt?: string;
-}) => {
-  const bucket_url = "https://pin-the-world.s3.ap-northeast-2.amazonaws.com/";
+import {Image} from "@chakra-ui/react";
 
-  const ext = imageName
-    .split(".")
-    [imageName.split(".").length - 1].toLowerCase();
-  const filename = imageName.slice(0, -(ext.length + 1));
+interface ResizeImageProps {
+    imageName: string;
+    alt?: string;
 
-  const image_1x = bucket_url + "resized/" + filename + "%26400";
-  const image_2x = bucket_url + "resized/" + filename + "%26960";
+    [key: string]: any;
+}
 
-  const srcSet = image_1x + " 1x," + image_2x + " 2x";
+export const ResizedImage = (props: ResizeImageProps) => {
+    const {imageName, alt = '', ...rest} = props;
 
-  return <img srcSet={srcSet} src={image_2x} style={style} alt={alt} />;
+    const bucket_url = "https://pin-the-world.s3.ap-northeast-2.amazonaws.com/";
+
+    const ext = imageName
+        .split(".")
+        [imageName.split(".").length - 1].toLowerCase();
+    const filename = imageName.slice(0, -(ext.length + 1));
+
+    const image_1x = bucket_url + "resized/" + filename + "%26400";
+    const image_2x = bucket_url + "resized/" + filename + "%26960";
+
+    const srcSet = image_1x + " 1x," + image_2x + " 2x";
+
+    return <Image srcSet={srcSet} src={image_2x} {...rest} alt={alt}/>;
 };

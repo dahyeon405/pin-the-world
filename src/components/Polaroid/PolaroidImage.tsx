@@ -61,13 +61,11 @@ export function PolaroidImage() {
               >
                 <ResizedImage
                   imageName={item.imageName}
-                  alt={item.alt}
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: "50% 50%",
-                    width: "100%",
-                    height: "100%",
-                  }}
+                  alt={item.alt ?? "polaroid image"}
+                  objectFit="cover"
+                  objectPosition="50% 50%"
+                  width="100%"
+                  height="100%"
                 />
               </Box>
             );
