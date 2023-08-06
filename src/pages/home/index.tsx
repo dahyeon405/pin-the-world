@@ -17,7 +17,7 @@ export default function Home() {
         bgGradient="linear(to-b, white 3%, #f57ac0 30%, #e0edb2 40%, #68cbc0 63%, #fb97fb 81%, #fba397 91%)"
       >
         <Heading as="h1" size="4xl" pl="24px" fontWeight="regular">
-          Pin the World
+          Pin the <br/> World
         </Heading>
         <Box pos="fixed" top="32" w="100vw" h="100vw">
           <Canvas

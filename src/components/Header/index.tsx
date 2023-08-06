@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
+import {useNavigate} from "react-router-dom";
 
 export function Header({ onMenuClick }: { onMenuClick: () => void }) {
+
+  const navigate = useNavigate();
+
+  // Safari 에서는 Link 태그 안의 이미지가 렌더링되지 않는 이슈가 있어서
+  // Button 컴포넌트로 변경, 클릭 시 navigate('/') 실행
+  const onClickLogo = () => {
+    navigate('/');
+  }
+
   return (
     <Flex
       pos="fixed"
@@ -15,11 +24,9 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       justify="space-between"
       backdropFilter="blur(2px)"
     >
-      <Link to="/">
-        <Box height="100%">
-          <Logo />
-        </Box>
-      </Link>
+      <Button height={'100%'} backgroundColor={'transparent'} px="0" onClick={onClickLogo}>
+        <Logo />
+      </Button>
       <Box
         as="button"
         my="auto"
