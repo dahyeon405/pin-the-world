@@ -6,7 +6,7 @@ export function MenuAccordionPanelItem({
   children: React.ReactNode;
 }) {
   return (
-    <Box fontFamily="Clash Display" textAlign="left" h="8">
+    <Box fontFamily="Clash Display" textAlign="left" h="8" lineHeight="8">
       {children}
     </Box>
   );

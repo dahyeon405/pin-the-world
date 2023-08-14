@@ -27,7 +27,7 @@ export function Menu({
         <DrawerBody mt="16">
           <Accordion allowToggle>
             <MenuAccordionItem text={"photos"}>
-              <AccordionPanel py={3}>
+              <AccordionPanel pb={3}>
                 <Link to={"/photos/europe"}>
                   <MenuAccordionPanelItem>2019 Europe</MenuAccordionPanelItem>
                 </Link>
