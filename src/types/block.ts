@@ -12,4 +12,6 @@ export interface ImageBlockData {
   text?: string;
   locationName?: string;
   locationUrl?: string;
+  addDate?: string;
+  id?: number;
 }
