@@ -1,30 +1,50 @@
-import { Block } from "../../../components/Block";
+import { Block } from "@/components/Block";
 import { Box, Heading } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { getNewYorkPhotos } from "@/requests/data-fetch/getNewYorkPhotos.ts";
+import { useGetNewYorkPhotos } from "@/requests/use/useGetNewYorkPhotos.ts";
+import { useGetNewYorkPageCount } from "@/requests/use/useGetNewYorkPageCount.ts";
+import { useSearchParams } from "react-router-dom";
+import { Pagination } from "@/components/Pagination";
 
 export default function NewYorkPage() {
-  const [data, setData] = useState<any>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = Number(searchParams.get("page")) || 1;
 
-  useEffect(() => {
-    getNewYorkPhotos().then((data) => {
-      if (data) setData(data);
+  const { data: pageCount } = useGetNewYorkPageCount();
+  const { data: photos } = useGetNewYorkPhotos(page);
+
+  const isFirstPage = page === 1;
+  const isMultiplePage = pageCount !== undefined && pageCount > 1;
+
+  const onClickPage = (page: number) => {
+    setSearchParams({
+      page: String(page),
     });
-  }, []);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>
       <Box px="6" py="16">
-        <Heading as="h1" fontWeight="400" size="3xl">
-          2022, <br />
-          New York
-        </Heading>
+        {isFirstPage && (
+          <Heading as="h1" fontWeight="400" size="3xl">
+            2022, <br />
+            New York
+          </Heading>
+        )}
       </Box>
-      <>
-        {data.map((item: any, index: number) => {
+      {photos &&
+        photos.map((item: any, index: number) => {
           return <Block item={item} key={index} />;
         })}
-      </>
+      <Box mt="4" mb="12">
+        {isMultiplePage && (
+          <Pagination
+            pageCount={pageCount}
+            onClickPage={onClickPage}
+            currentPage={page}
+          />
+        )}
+      </Box>
     </>
   );
 }
