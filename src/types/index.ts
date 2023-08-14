@@ -13,3 +13,5 @@ export type Vector = [number, number, number];
  * [경도, 위도]
  */
 export type Coordinate = [number, number];
+
+export * from "./block.ts";
