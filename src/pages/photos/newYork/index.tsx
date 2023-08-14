@@ -36,7 +36,7 @@ export default function NewYorkPage() {
         photos.map((item: any, index: number) => {
           return <Block item={item} key={index} />;
         })}
-      <Box mt="4" mb="12">
+      <Box mt="4" mb="24">
         {isMultiplePage && (
           <Pagination
             pageCount={pageCount}
