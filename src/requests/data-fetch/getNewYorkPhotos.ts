@@ -9,7 +9,7 @@ import {
 import db from "../firebase";
 import { BlockItem } from "@/types";
 
-export const NEWYORK_PHOTOS_LIMIT = 3;
+export const NEWYORK_PHOTOS_LIMIT = 5;
 
 export const getNewYorkPhotos = async (page: number = 1) => {
   const _page = page - 1;
