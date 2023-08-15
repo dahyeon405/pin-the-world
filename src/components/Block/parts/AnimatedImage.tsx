@@ -16,7 +16,7 @@ export function AnimatedImage({
         motioned
         imageName={imageName}
         alt={alt ?? ""}
-        initial={{ scale: 1.1, opacity: 0 }}
+        initial={{ scale: 1, opacity: 0.3 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ amount: 0.5, once: true }}
         objectFit="cover"
