@@ -5,7 +5,7 @@ export const useScroll = (throttleInterval = 0) => {
   const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
   }, []);
 
   const onScroll = useThrottle(() => {
