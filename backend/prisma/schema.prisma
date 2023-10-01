@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Image {
+  id          Int      @id @default(autoincrement())
+  url         String
+  name        String
+  alt         String?
+  city        String
+  country     String?
+  location    String?
+  locationUrl String?
+  description String
+  createdAt   DateTime @default(now())
+  tags        Tag[]
+  type        String
+}
+
+model Tag {
+  id      Int    @id @default(autoincrement())
+  name    String
+  image   Image  @relation(fields: [imageId], references: [id])
+  imageId Int
+}
