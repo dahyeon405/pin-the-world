@@ -1,12 +1,20 @@
-import express, { Express, Request, Response } from 'express';
+import express from 'express'
+import loader from './loader'
 
-const app: Express = express();
-const port = 3000;
+const port = 3001
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Typescript + Node.js + Express Server');
-});
+const startServer = () => {
+  const app = express()
 
-app.listen(port, () => {
-    console.log(`[server]: Server is running at <https://localhost>:${port}`);
-});
+  const server = app.listen(port, () => {
+    console.log(`[server]: Server is running at <https://localhost>:${port}`)
+  })
+
+  loader(app)
+
+  process.on('SIGINT', () => {
+    server.close(() => process.exit(0))
+  })
+}
+
+startServer()

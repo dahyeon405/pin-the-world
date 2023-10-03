@@ -12,7 +12,7 @@ datasource db {
 
 model Image {
   id          Int      @id @default(autoincrement())
-  url         String
+  url         String?
   name        String
   alt         String?
   city        String
