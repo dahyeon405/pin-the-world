@@ -1,7 +1,5 @@
-import logo from "@/assets/logo.svg";
+import logo from '@/assets/logo.svg'
 
 export function Logo() {
-  return (
-    <img src={logo} alt="logo" style={{height: '100%'}}/>
-  );
+  return <img src={logo} alt="logo" style={{ height: '100%' }} />
 }

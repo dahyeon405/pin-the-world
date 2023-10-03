@@ -3,14 +3,14 @@ import {
   AccordionIcon,
   AccordionItem,
   Box,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
 export function MenuAccordionItem({
   children,
   text,
 }: {
-  children: React.ReactElement[] | React.ReactElement;
-  text: string;
+  children: React.ReactElement[] | React.ReactElement
+  text: string
 }) {
   return (
     <AccordionItem border={0}>
@@ -24,5 +24,5 @@ export function MenuAccordionItem({
       </h2>
       {children}
     </AccordionItem>
-  );
+  )
 }

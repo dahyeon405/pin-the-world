@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./theme.ts";
-import { ScrollToTop } from "@/components/ScrollToTop";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Outlet } from 'react-router-dom'
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from './theme.ts'
+import { ScrollToTop } from '@/components/ScrollToTop'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
     },
   },
-});
+})
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Outlet />
       </ChakraProvider>
     </QueryClientProvider>
-  );
+  )
 }
 
-export default App;
+export default App

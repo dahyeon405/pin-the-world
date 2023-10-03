@@ -1,7 +1,7 @@
-import { Box, Heading, Text, Link, Flex } from "@chakra-ui/react";
-import { ResizedImage } from "@/components/ResizedImage";
-import youtubeIcon from "@/assets/icons/youtube-icon.svg";
-import instagramIcon from "@/assets/icons/instagram-icon.svg";
+import { Box, Heading, Text, Link, Flex } from '@chakra-ui/react'
+import { ResizedImage } from '@/components/ResizedImage'
+import youtubeIcon from '@/assets/icons/youtube-icon.svg'
+import instagramIcon from '@/assets/icons/instagram-icon.svg'
 
 export default function AboutPage() {
   return (
@@ -22,7 +22,7 @@ export default function AboutPage() {
         Youtube channel
       </Heading>
 
-      <Link href={"https://www.youtube.com/@twntytw22"}>
+      <Link href={'https://www.youtube.com/@twntytw22'}>
         <Flex
           border="1px"
           borderColor="gray.200"
@@ -32,7 +32,7 @@ export default function AboutPage() {
           py="3"
         >
           <ResizedImage
-            imageName={"thumbnailyoutube.png"}
+            imageName={'thumbnailyoutube.png'}
             width="60px"
             height="60px"
             borderRadius="100px"
@@ -47,15 +47,15 @@ export default function AboutPage() {
             </Text>
           </Flex>
         </Flex>
-        {/*<Text*/}
-        {/*  fontSize="xs"*/}
-        {/*  mt="2"*/}
-        {/*  align="center"*/}
-        {/*  color="gray.600"*/}
-        {/*  fontStyle="italic"*/}
-        {/*>*/}
-        {/*  클릭해서 이동하기*/}
-        {/*</Text>*/}
+        {/* <Text */}
+        {/*  fontSize="xs" */}
+        {/*  mt="2" */}
+        {/*  align="center" */}
+        {/*  color="gray.600" */}
+        {/*  fontStyle="italic" */}
+        {/* > */}
+        {/*  클릭해서 이동하기 */}
+        {/* </Text> */}
       </Link>
 
       <Heading as="h2" fontSize="lg" fontWeight="500" mt="8">
@@ -65,7 +65,7 @@ export default function AboutPage() {
       <Flex mt="3">
         <img src={instagramIcon} width={24} alt="instagram icon" />
         <Link
-          href={"https://www.instagram.com/twntytw_22/"}
+          href={'https://www.instagram.com/twntytw_22/'}
           fontFamily="Clash Display"
           textDecoration="underline"
           ml="2"
@@ -82,5 +82,5 @@ export default function AboutPage() {
         2023.08.05 dahyeon
       </Text>
     </Box>
-  );
+  )
 }

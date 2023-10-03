@@ -5,30 +5,30 @@ import {
   orderBy,
   limit,
   startAt,
-} from "firebase/firestore";
-import db from "../firebase";
-import { BlockItem } from "@/types";
+} from 'firebase/firestore'
+import db from '../firebase'
+import { type BlockItem } from '@/types'
 
-export const NEWYORK_PHOTOS_LIMIT = 5;
+export const NEWYORK_PHOTOS_LIMIT = 5
 
 export const getNewYorkPhotos = async (page: number = 1) => {
-  const _page = page - 1;
+  const _page = page - 1
 
-  const newYorkCollection = collection(db, "newYork");
+  const newYorkCollection = collection(db, 'newYork')
   const _query = query(
     newYorkCollection,
-    orderBy("id", "asc"),
+    orderBy('id', 'asc'),
     limit(NEWYORK_PHOTOS_LIMIT),
-    startAt(_page * NEWYORK_PHOTOS_LIMIT),
-  );
+    startAt(_page * NEWYORK_PHOTOS_LIMIT)
+  )
 
-  const docSnap = await getDocs(_query);
+  const docSnap = await getDocs(_query)
 
-  const data: BlockItem[] = [];
+  const data: BlockItem[] = []
 
   docSnap.forEach((doc) => {
-    data.push(doc.data() as BlockItem);
-  });
+    data.push(doc.data() as BlockItem)
+  })
 
-  return data;
-};
+  return data
+}

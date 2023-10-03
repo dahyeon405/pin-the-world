@@ -1,26 +1,26 @@
-import { Block } from "@/components/Block";
-import { Box, Heading } from "@chakra-ui/react";
-import { useGetNewYorkPhotos } from "@/requests/use/useGetNewYorkPhotos.ts";
-import { useGetNewYorkPageCount } from "@/requests/use/useGetNewYorkPageCount.ts";
-import { useSearchParams } from "react-router-dom";
-import { Pagination } from "@/components/Pagination";
+import { Block } from '@/components/Block'
+import { Box, Heading } from '@chakra-ui/react'
+import { useGetNewYorkPhotos } from '@/requests/use/useGetNewYorkPhotos.ts'
+import { useGetNewYorkPageCount } from '@/requests/use/useGetNewYorkPageCount.ts'
+import { useSearchParams } from 'react-router-dom'
+import { Pagination } from '@/components/Pagination'
 
 export default function NewYorkPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const page = Number(searchParams.get("page")) || 1;
+  const [searchParams, setSearchParams] = useSearchParams()
+  const page = Number(searchParams.get('page')) || 1
 
-  const { data: pageCount } = useGetNewYorkPageCount();
-  const { data: photos } = useGetNewYorkPhotos(page);
+  const { data: pageCount } = useGetNewYorkPageCount()
+  const { data: photos } = useGetNewYorkPhotos(page)
 
-  const isFirstPage = page === 1;
-  const isMultiplePage = pageCount !== undefined && pageCount > 1;
+  const isFirstPage = page === 1
+  const isMultiplePage = pageCount !== undefined && pageCount > 1
 
   const onClickPage = (page: number) => {
     setSearchParams({
       page: String(page),
-    });
-    window.scrollTo(0, 0);
-  };
+    })
+    window.scrollTo(0, 0)
+  }
 
   return (
     <>
@@ -32,10 +32,9 @@ export default function NewYorkPage() {
           </Heading>
         )}
       </Box>
-      {photos &&
-        photos.map((item: any, index: number) => {
-          return <Block item={item} key={index} />;
-        })}
+      {photos?.map((item: any, index: number) => {
+        return <Block item={item} key={index} />
+      })}
       <Box mt="4" mb="24">
         {isMultiplePage && (
           <Pagination
@@ -46,5 +45,5 @@ export default function NewYorkPage() {
         )}
       </Box>
     </>
-  );
+  )
 }

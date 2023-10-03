@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button } from '@chakra-ui/react'
 
 export function MenuItem({ children }: { children: React.ReactNode }) {
   return (
@@ -13,5 +13,5 @@ export function MenuItem({ children }: { children: React.ReactNode }) {
     >
       {children}
     </Button>
-  );
+  )
 }

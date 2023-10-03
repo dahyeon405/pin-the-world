@@ -1,24 +1,23 @@
-import { useContext, useEffect, useMemo } from "react";
-import { PolaroidContext } from "./PolaroidContainer";
-import { Text } from "@chakra-ui/react";
+import { useContext, useEffect, useMemo } from 'react'
+import { PolaroidContext } from './PolaroidContainer'
+import { Text } from '@chakra-ui/react'
 
 export function PolaroidDescription() {
-  const polaroidContext = useContext(PolaroidContext);
+  const polaroidContext = useContext(PolaroidContext)
 
-  useEffect(() => {}, [polaroidContext?.currentIndex]);
+  useEffect(() => {}, [polaroidContext?.currentIndex])
 
   const description = useMemo(() => {
     if (
-      !polaroidContext ||
-      !polaroidContext.polaroidList ||
-      polaroidContext.currentIndex == undefined
+      !polaroidContext?.polaroidList ||
+      polaroidContext.currentIndex === undefined
     ) {
-      return "";
+      return ''
     }
 
     return polaroidContext.polaroidList[polaroidContext.currentIndex]
-      .description;
-  }, [polaroidContext?.currentIndex]);
+      .description
+  }, [polaroidContext?.currentIndex])
 
   return (
     <Text
@@ -31,5 +30,5 @@ export function PolaroidDescription() {
     >
       {description}
     </Text>
-  );
+  )
 }

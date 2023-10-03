@@ -1,21 +1,21 @@
-import { Header } from "@/components/Header";
-import { Menu } from "@/components/Menu";
-import { useDisclosure } from "@chakra-ui/react";
-import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Header } from '@/components/Header'
+import { Menu } from '@/components/Menu'
+import { useDisclosure } from '@chakra-ui/react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export default function MenuLayout() {
   const {
     isOpen: isMenuOpen,
     onOpen: onMenuOpen,
     onClose: onMenuClose,
-  } = useDisclosure();
+  } = useDisclosure()
 
-  const location = useLocation();
+  const location = useLocation()
 
   useEffect(() => {
-    onMenuClose();
-  }, [location]);
+    onMenuClose()
+  }, [location])
 
   return (
     <>
@@ -23,5 +23,5 @@ export default function MenuLayout() {
       <Menu isOpen={isMenuOpen} onClose={onMenuClose} />
       <Outlet />
     </>
-  );
+  )
 }

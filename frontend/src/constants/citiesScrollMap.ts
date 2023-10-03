@@ -1,4 +1,4 @@
-import { Cities } from ".";
+import { type Cities } from '.'
 
 /**
  * @key 도시 이름
@@ -8,5 +8,5 @@ export const citiesScrollMap: Record<Cities, [number, number]> = {
   Copenhagen: [1000, 2200],
   Iceland: [2700, 3900],
   Seoul: [4500, 5700],
-  "New York": [6500, 7000],
-};
+  'New York': [6500, 7000],
+}

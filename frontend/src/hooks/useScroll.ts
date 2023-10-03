@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import { useThrottle } from "./useThrottle";
+import { useEffect, useState } from 'react'
+import { useThrottle } from './useThrottle'
 
 export const useScroll = (throttleInterval = 0) => {
-  const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
+  const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }, []);
+    window.addEventListener('scroll', onScroll, { passive: true })
+  }, [])
 
   const onScroll = useThrottle(() => {
     setScrollPosition({
       x: window.scrollX,
       y: window.scrollY,
-    });
-  }, throttleInterval);
+    })
+  }, throttleInterval)
 
-  return scrollPosition;
-};
+  return scrollPosition
+}

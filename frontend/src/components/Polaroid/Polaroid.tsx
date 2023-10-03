@@ -1,14 +1,14 @@
-import { ArrowButtons } from "./ArrowButtons";
-import { PolaroidContainer, PolaroidItem } from "./PolaroidContainer";
-import { PolaroidDescription } from "./PolaroidDescription";
-import { PolaroidImage } from "./PolaroidImage";
+import { ArrowButtons } from './ArrowButtons'
+import { PolaroidContainer, type PolaroidItem } from './PolaroidContainer'
+import { PolaroidDescription } from './PolaroidDescription'
+import { PolaroidImage } from './PolaroidImage'
 
 export function Polaroid({
   polaroidList,
   size,
 }: {
-  polaroidList: PolaroidItem[];
-  size: number;
+  polaroidList: PolaroidItem[]
+  size: number
 }) {
   return (
     <PolaroidContainer polaroidList={polaroidList} size={size}>
@@ -16,5 +16,5 @@ export function Polaroid({
       <PolaroidDescription />
       <ArrowButtons />
     </PolaroidContainer>
-  );
+  )
 }

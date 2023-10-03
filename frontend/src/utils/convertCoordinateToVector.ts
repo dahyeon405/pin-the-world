@@ -1,4 +1,4 @@
-import { Coordinate, Vector } from "@/types";
+import { type Coordinate, type Vector } from '@/types'
 
 /**
  *
@@ -10,14 +10,14 @@ export const convertCoordinateToVector = (
   coordinate: Coordinate,
   radius: number
 ): Vector => {
-  const [longitude, latitude] = coordinate;
+  const [longitude, latitude] = coordinate
 
-  const lambda = (longitude * Math.PI) / 180;
-  const phi = (latitude * Math.PI) / 180;
+  const lambda = (longitude * Math.PI) / 180
+  const phi = (latitude * Math.PI) / 180
 
   return [
     radius * Math.cos(phi) * Math.cos(lambda),
     radius * Math.sin(phi),
     -radius * Math.cos(phi) * Math.sin(lambda),
-  ];
-};
+  ]
+}

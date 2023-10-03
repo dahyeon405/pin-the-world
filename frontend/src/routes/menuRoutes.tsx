@@ -1,30 +1,30 @@
-import Home from "@/pages/home";
-import EuropePage from "@/pages/photos/europe";
-import AboutPage from "@/pages/about";
-import MenuLayout from "@/layout/MenuLayout.tsx";
-import NewYorkPage from "@/pages/photos/newYork";
+import Home from '@/pages/home'
+import EuropePage from '@/pages/photos/europe'
+import AboutPage from '@/pages/about'
+import MenuLayout from '@/layout/MenuLayout.tsx'
+import NewYorkPage from '@/pages/photos/newYork'
 
 export const menuRoutes = [
   {
-    path: "/",
+    path: '/',
     element: <MenuLayout />,
     children: [
       {
-        path: "",
+        path: '',
         element: <Home />,
       },
       {
-        path: "/photos/europe",
+        path: '/photos/europe',
         element: <EuropePage />,
       },
       {
-        path: "/photos/new-york",
+        path: '/photos/new-york',
         element: <NewYorkPage />,
       },
       {
-        path: "/about",
+        path: '/about',
         element: <AboutPage />,
       },
     ],
   },
-];
+]

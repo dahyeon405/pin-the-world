@@ -1,7 +1,7 @@
-import { Box, Text } from "@chakra-ui/react";
-import { DetailText, Location } from "./parts";
-import { ImageBlockData } from "@/types";
-import { AnimatedImage } from "@/components/Block/parts/AnimatedImage.tsx";
+import { Box, Text } from '@chakra-ui/react'
+import { DetailText, Location } from './parts'
+import { type ImageBlockData } from '@/types'
+import { AnimatedImage } from '@/components/Block/parts/AnimatedImage.tsx'
 
 export function ImageVertical({ data }: { data: ImageBlockData }) {
   return (
@@ -13,11 +13,11 @@ export function ImageVertical({ data }: { data: ImageBlockData }) {
           locationName={data.locationName}
           locationUrl={data.locationUrl}
         />
-        <DetailText text={data.text ?? ""} />
+        <DetailText text={data.text ?? ''} />
       </Box>
       <Text align="center" my="3" fontSize="sm" whiteSpace="pre-line">
         ➿
       </Text>
     </Box>
-  );
+  )
 }

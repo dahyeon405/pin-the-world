@@ -1,14 +1,14 @@
 export const useDisableScroll = () => {
   const disableScroll = () => {
-    document.body.style.overflow = "hidden";
-  };
+    document.body.style.overflow = 'hidden'
+  }
 
   const enableScroll = () => {
-    document.body.style.overflow = "";
-  };
+    document.body.style.overflow = ''
+  }
 
   return {
     disableScroll,
     enableScroll,
-  };
-};
+  }
+}

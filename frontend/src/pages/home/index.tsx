@@ -1,7 +1,7 @@
-import { Canvas } from "@react-three/fiber";
-import { EarthCanvas } from "@/components/EarthCanvas";
-import { CityPolaroidBoard } from "@/components/Polaroid/CityPolaroidBoard";
-import { Box, Heading } from "@chakra-ui/react";
+import { Canvas } from '@react-three/fiber'
+import { EarthCanvas } from '@/components/EarthCanvas'
+import { CityPolaroidBoard } from '@/components/Polaroid/CityPolaroidBoard'
+import { Box, Heading } from '@chakra-ui/react'
 
 export default function Home() {
   // react-three/drei 라이브러리에서,
@@ -31,5 +31,5 @@ export default function Home() {
         <CityPolaroidBoard />
       </Box>
     </>
-  );
+  )
 }

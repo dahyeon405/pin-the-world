@@ -1,15 +1,15 @@
-import { useContext, useMemo } from "react";
-import { PolaroidContext } from "./PolaroidContainer";
-import arrowLeft from "@/assets/icons/arrow-left.svg";
-import arrowRight from "@/assets/icons/arrow-right.svg";
-import { IconButton, Flex } from "@chakra-ui/react";
+import { useContext, useMemo } from 'react'
+import { PolaroidContext } from './PolaroidContainer'
+import arrowLeft from '@/assets/icons/arrow-left.svg'
+import arrowRight from '@/assets/icons/arrow-right.svg'
+import { IconButton, Flex } from '@chakra-ui/react'
 
 export function ArrowButtons() {
-  const polaroidContext = useContext(PolaroidContext);
+  const polaroidContext = useContext(PolaroidContext)
 
   const polaroidListLength = useMemo(() => {
-    return polaroidContext?.polaroidList?.length ?? 0;
-  }, [polaroidContext?.polaroidList]);
+    return polaroidContext?.polaroidList?.length ?? 0
+  }, [polaroidContext?.polaroidList])
 
   return (
     <Flex
@@ -23,7 +23,7 @@ export function ArrowButtons() {
         size="s"
         isRound={true}
         onClick={polaroidContext?.onPrev}
-        visibility={polaroidContext?.currentIndex === 0 ? "hidden" : undefined}
+        visibility={polaroidContext?.currentIndex === 0 ? 'hidden' : undefined}
         icon={<img src={arrowLeft} />}
         aria-label="to previous image"
         backgroundColor="rgba(255, 255, 255, 0.7)"
@@ -34,7 +34,7 @@ export function ArrowButtons() {
         onClick={polaroidContext?.onNext}
         visibility={
           polaroidContext?.currentIndex === polaroidListLength - 1
-            ? "hidden"
+            ? 'hidden'
             : undefined
         }
         icon={<img src={arrowRight} />}
@@ -42,5 +42,5 @@ export function ArrowButtons() {
         backgroundColor="rgba(255, 255, 255, 0.7)"
       />
     </Flex>
-  );
+  )
 }

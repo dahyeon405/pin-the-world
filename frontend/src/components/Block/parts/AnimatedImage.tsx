@@ -1,21 +1,21 @@
-import { Box } from "@chakra-ui/react";
-import { ResizedImage } from "@/components/ResizedImage";
+import { Box } from '@chakra-ui/react'
+import { ResizedImage } from '@/components/ResizedImage'
 
 export function AnimatedImage({
   ratio,
   imageName,
   alt,
 }: {
-  ratio: number;
-  imageName: string;
-  alt?: string;
+  ratio: number
+  imageName: string
+  alt?: string
 }) {
   return (
     <Box width="100vw" height={`${100 * ratio}vw`} overflow="hidden">
       <ResizedImage
         motioned
         imageName={imageName}
-        alt={alt ?? ""}
+        alt={alt ?? ''}
         initial={{ scale: 1, opacity: 0.3 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ amount: 0.5, once: true }}
@@ -25,5 +25,5 @@ export function AnimatedImage({
         height={`${100 * ratio}vw`}
       />
     </Box>
-  );
+  )
 }

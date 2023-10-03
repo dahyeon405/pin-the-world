@@ -1,12 +1,12 @@
-import { Flex, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Flex, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 export function Location({
   locationUrl,
   locationName,
 }: {
-  locationUrl?: string;
-  locationName?: string;
+  locationUrl?: string
+  locationName?: string
 }) {
   return (
     <>
@@ -25,11 +25,11 @@ export function Location({
               fontSize="sm"
               textDecoration="underline"
             >
-              {locationName ?? "구글 맵에서 보기"}
+              {locationName ?? '구글 맵에서 보기'}
             </Text>
           </Link>
         </Flex>
       )}
     </>
-  );
+  )
 }

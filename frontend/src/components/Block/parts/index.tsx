@@ -1,2 +1,2 @@
-export * from "./Location.tsx";
-export * from "./DetailText.tsx";
+export * from './Location.tsx'
+export * from './DetailText.tsx'

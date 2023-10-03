@@ -1,30 +1,31 @@
-import { useContext, useEffect, useRef, useMemo } from "react";
-import { PolaroidContext } from "./PolaroidContainer";
-import { ResizedImage } from "../ResizedImage";
-import { Box, Flex } from "@chakra-ui/react";
+import { useContext, useEffect, useRef, useMemo } from 'react'
+import { PolaroidContext } from './PolaroidContainer'
+import { ResizedImage } from '../ResizedImage'
+import { Box, Flex } from '@chakra-ui/react'
 
 export function PolaroidImage() {
-  const polaroidContext = useContext(PolaroidContext);
-  const isCompounded = polaroidContext !== undefined;
+  const polaroidContext = useContext(PolaroidContext)
+  const isCompounded = polaroidContext !== undefined
 
-  const previousIndex = useRef(0);
+  const previousIndex = useRef(0)
 
-  const imageListRef = useRef<HTMLDivElement>(null);
+  const imageListRef = useRef<HTMLDivElement>(null)
 
   const imageSize = useMemo(() => {
-    return polaroidContext?.size ?? 0;
-  }, [polaroidContext?.size]);
+    return polaroidContext?.size ?? 0
+  }, [polaroidContext?.size])
 
   useEffect(() => {
-    const currentIndex = polaroidContext?.currentIndex;
-    const size = polaroidContext?.size ?? 0;
+    const currentIndex = polaroidContext?.currentIndex
+    const size = polaroidContext?.size ?? 0
 
     if (
       currentIndex === undefined ||
       !imageListRef.current ||
       currentIndex === previousIndex.current
-    )
-      return;
+    ) {
+      return
+    }
 
     imageListRef.current?.animate(
       {
@@ -35,13 +36,13 @@ export function PolaroidImage() {
       },
       {
         duration: 1000,
-        fill: "forwards",
-        easing: "ease",
-      },
-    );
+        fill: 'forwards',
+        easing: 'ease',
+      }
+    )
 
-    previousIndex.current = polaroidContext?.currentIndex ?? 0;
-  }, [polaroidContext?.currentIndex]);
+    previousIndex.current = polaroidContext?.currentIndex ?? 0
+  }, [polaroidContext?.currentIndex])
 
   return (
     <Box
@@ -61,16 +62,16 @@ export function PolaroidImage() {
               >
                 <ResizedImage
                   imageName={item.imageName}
-                  alt={item.alt ?? "polaroid image"}
+                  alt={item.alt ?? 'polaroid image'}
                   objectFit="cover"
                   objectPosition="50% 50%"
                   width="100%"
                   height="100%"
                 />
               </Box>
-            );
+            )
           })}
       </Flex>
     </Box>
-  );
+  )
 }

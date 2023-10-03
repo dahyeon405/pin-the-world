@@ -1,9 +1,9 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
   fonts: {
-    heading: "Clash Display",
+    heading: 'Clash Display',
   },
-});
+})
 
-export default theme;
+export default theme

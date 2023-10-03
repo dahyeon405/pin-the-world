@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 
 const {
   VITE_FIREBASE_API_KEY,
@@ -10,7 +10,7 @@ const {
   VITE_FIREBASE_MESSAGING_SENDER_ID,
   VITE_FIREBASE_APP_ID,
   VITE_FIREBASE_MEASUREMENT_ID,
-} = import.meta.env;
+} = import.meta.env
 
 const firebaseConfig = {
   apiKey: VITE_FIREBASE_API_KEY,
@@ -21,9 +21,9 @@ const firebaseConfig = {
   messagingSenderId: VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: VITE_FIREBASE_APP_ID,
   measurementId: VITE_FIREBASE_MEASUREMENT_ID,
-};
+}
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
 
-export default db;
+export default db

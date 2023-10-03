@@ -1,29 +1,29 @@
-import { polaroidsMap } from "@/constants/cityPolaroid";
-import { Polaroid } from "./Polaroid";
-import { Cities } from "@/constants";
-import { useEffect, useState } from "react";
-import { useScroll } from "@/hooks";
-import { AnimatePresence, motion } from "framer-motion";
-import { Flex, Text } from "@chakra-ui/react";
+import { polaroidsMap } from '@/constants/cityPolaroid'
+import { Polaroid } from './Polaroid'
+import { type Cities } from '@/constants'
+import { useEffect, useState } from 'react'
+import { useScroll } from '@/hooks'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Flex, Text } from '@chakra-ui/react'
 
 export function CityPolaroid({
   cityName,
   scrollStart,
   scrollHeight,
 }: {
-  cityName: Cities;
-  scrollStart: number;
-  scrollHeight: number;
+  cityName: Cities
+  scrollStart: number
+  scrollHeight: number
 }) {
-  const { y: scrollY } = useScroll(100);
+  const { y: scrollY } = useScroll(100)
 
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(false)
 
   useEffect(() => {
     if (scrollY > scrollStart && scrollY < scrollHeight + scrollStart) {
-      setIsShown(true);
-    } else setIsShown(false);
-  }, [scrollY]);
+      setIsShown(true)
+    } else setIsShown(false)
+  }, [scrollY])
 
   return (
     <AnimatePresence>
@@ -51,5 +51,5 @@ export function CityPolaroid({
         </Flex>
       )}
     </AnimatePresence>
-  );
+  )
 }

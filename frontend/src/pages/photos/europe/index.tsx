@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react'
 
 export default function EuropePage() {
   return (
@@ -7,5 +7,5 @@ export default function EuropePage() {
         <div>페이지 준비 중입니다..</div>
       </Box>
     </>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 export const parseNewline = (text: string) => {
   return text
-    .split("\\n")
+    .split('\\n')
     .map((str) => str.trim())
-    .join("\n");
-};
+    .join('\n')
+}

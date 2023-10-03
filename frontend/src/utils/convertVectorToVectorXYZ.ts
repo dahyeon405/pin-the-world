@@ -1,4 +1,4 @@
-import { Vector, VectorXYZ } from "@/types";
+import { type Vector, type VectorXYZ } from '@/types'
 
 /**
  *
@@ -6,11 +6,11 @@ import { Vector, VectorXYZ } from "@/types";
  * @returns vector 객체. { x: x좌표, y: y좌표, z: z좌표 }
  */
 export const convertVectorToVectorXYZ = (vector: Vector): VectorXYZ => {
-  const [x, y, z] = vector;
+  const [x, y, z] = vector
 
   return {
     x,
     y,
     z,
-  };
-};
+  }
+}
