@@ -5,6 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
@@ -13,13 +17,13 @@ datasource db {
 model Image {
   id          Int      @id @default(autoincrement())
   url         String?
-  name        String
-  alt         String?
-  city        String
+  name        String?
+  title       String?
+  city        String?
   country     String?
   location    String?
   locationUrl String?
-  description String
+  description String?
   createdAt   DateTime @default(now())
   tags        Tag[]
   type        String

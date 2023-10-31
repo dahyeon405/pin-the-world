@@ -1,20 +1,23 @@
-import express from 'express'
-import loader from './loader'
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import { createYoga } from 'graphql-yoga'
+import { createServer } from 'http'
+import { schema } from './schema'
 
-const port = 3001
+const yoga = createYoga({
+  graphqlEndpoint: '/',
+  schema,
+  context: (req) => {
+    return {
+      req
+    }
+  }
+})
 
-const startServer = () => {
-  const app = express()
+const server = createServer(yoga)
 
-  const server = app.listen(port, () => {
-    console.log(`[server]: Server is running at <https://localhost>:${port}`)
-  })
-
-  loader(app)
-
-  process.on('SIGINT', () => {
-    server.close(() => process.exit(0))
-  })
-}
-
-startServer()
+server.listen(4000, () => {
+  console.log(`\
+🚀 Server ready at: http://127.0.0.1:4000
+⭐️ See sample queries: http://pris.ly/e/ts/graphql#using-the-graphql-api
+  `)
+})

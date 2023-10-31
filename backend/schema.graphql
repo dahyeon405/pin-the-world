@@ -1,0 +1,34 @@
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+type Image {
+  city: String
+  country: String
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  location: String
+  locationUrl: String
+  name: String
+  tags: [Tag!]!
+  title: String
+  type: String!
+  url: String
+}
+
+type Mutation {
+  createImage(city: String, country: String, description: String, location: String, locationUrl: String, name: String, title: String, type: String!, url: String): Image!
+}
+
+type Query {
+  imagesByCity(city: String): [Image!]!
+  imagesByTag(tag: String): [Image!]!
+}
+
+type Tag {
+  id: ID!
+  imageId: Image!
+  name: String!
+}
