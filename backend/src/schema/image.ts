@@ -73,6 +73,7 @@ builder.queryFields((t) => ({
     },
     resolve: async (query, parent, args) => {
       return await prisma.image.findMany({
+        ...query,
         where: {
           tags: {
             some: {
