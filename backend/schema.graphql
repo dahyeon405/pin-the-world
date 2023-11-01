@@ -23,6 +23,13 @@ type Mutation {
   addImage(type: String!): Image!
 }
 
+type PageInfo {
+  endCursor: ID
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: ID
+}
+
 type Query {
   imagesByCity(after: ID, before: ID, city: String, first: Int, last: Int): QueryImagesByCityConnection!
   imagesByTag(after: ID, before: ID, first: Int, last: Int, tag: String): QueryImagesByTagConnection!
