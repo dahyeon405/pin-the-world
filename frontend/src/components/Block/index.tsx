@@ -1,7 +1,5 @@
 import { type BlockItem, type BlockType } from '@/types'
-import { ImageVertical } from './ImageVertical.tsx'
-import { ImageHorizontal } from './ImageHorizontal.tsx'
-import { ImageSquare } from './ImageSquare.tsx'
+import { ImageVertical, ImageHorizontal, ImageSquare } from './ImageBasic.tsx'
 
 export const blockMap: Record<BlockType, any> = {
   'image-vertical': ImageVertical,
@@ -11,5 +9,7 @@ export const blockMap: Record<BlockType, any> = {
 
 export function Block({ item }: { item: BlockItem }) {
   const BlockComponent = blockMap[item.type]
-  return <BlockComponent data={item.data} />
+  if (!BlockComponent) return null
+
+  return <BlockComponent data={item} />
 }
