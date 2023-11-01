@@ -31,40 +31,16 @@ type PageInfo {
 }
 
 type Query {
-  imagesByCity(after: ID, before: ID, city: String, first: Int, last: Int): QueryImagesByCityConnection!
-  imagesByTag(after: ID, before: ID, first: Int, last: Int, tag: String): QueryImagesByTagConnection!
-  imagesByTravel(after: ID, before: ID, first: Int, last: Int, travel: String): QueryImagesByTravelConnection!
+  images(after: ID, before: ID, city: String, first: Int, last: Int, skip: Int, tag: String, travel: String): QueryImagesConnection!
 }
 
-type QueryImagesByCityConnection {
-  edges: [QueryImagesByCityConnectionEdge]!
+type QueryImagesConnection {
+  edges: [QueryImagesConnectionEdge]!
   pageInfo: PageInfo!
   totalCount: Int!
 }
 
-type QueryImagesByCityConnectionEdge {
-  cursor: ID!
-  node: Image!
-}
-
-type QueryImagesByTagConnection {
-  edges: [QueryImagesByTagConnectionEdge]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-type QueryImagesByTagConnectionEdge {
-  cursor: ID!
-  node: Image!
-}
-
-type QueryImagesByTravelConnection {
-  edges: [QueryImagesByTravelConnectionEdge]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-type QueryImagesByTravelConnectionEdge {
+type QueryImagesConnectionEdge {
   cursor: ID!
   node: Image!
 }

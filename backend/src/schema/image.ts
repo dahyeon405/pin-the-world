@@ -36,91 +36,85 @@ builder.mutationFields((t) => ({
   })
 }))
 
-builder.queryField('imagesByCity', (t) => {
+/**
+ * 커서 방식, 페이지네이션 방식 모두 가능
+ */
+builder.queryField('images', (t) => {
   return t.prismaConnection({
     type: 'Image',
     cursor: 'id',
     args: {
-      city: t.arg.string()
-    },
-    totalCount: async (parent, args) => {
-      return await prisma.image.count({
-        where: {
-          city: args.city ?? ''
-        }
-      })
-    },
-    resolve: async (query, parent, args) => {
-      return await prisma.image.findMany({
-        ...query,
-        where: {
-          city: args.city ?? ''
-        },
-        orderBy: {
-          createdAt: 'desc'
-        }
-      })
-    }
-  })
-})
-
-builder.queryField('imagesByTravel', (t) => {
-  return t.prismaConnection({
-    type: 'Image',
-    cursor: 'id',
-    totalCount: async (parent, args) => {
-      return await prisma.image.count({
-        where: {
-          travel: args.travel ?? ''
-        }
-      })
-    },
-    args: {
-      travel: t.arg.string()
-    },
-    resolve: async (query, parent, args) => {
-      return await prisma.image.findMany({
-        ...query,
-        where: {
-          travel: args.travel ?? ''
-        },
-        orderBy: {
-          createdAt: 'desc'
-        }
-      })
-    }
-  })
-})
-
-builder.queryField('imagesByTag', (t) => {
-  return t.prismaConnection({
-    type: 'Image',
-    cursor: 'id',
-    args: {
+      city: t.arg.string(),
+      travel: t.arg.string(),
+      skip: t.arg.int(),
       tag: t.arg.string()
     },
     totalCount: async (parent, args) => {
       return await prisma.image.count({
         where: {
-          tags: {
-            some: {
-              name: args.tag ?? ''
-            }
-          }
+          city: args.city ?? undefined,
+          travel: args.travel ?? undefined,
+          ...(args.tag !== undefined
+            ? {
+                tags: {
+                  some: {
+                    name: args.tag ?? undefined
+                  }
+                }
+              }
+            : {})
         }
       })
     },
     resolve: async (query, parent, args) => {
       return await prisma.image.findMany({
         ...query,
+        skip: args.skip ?? undefined,
         where: {
-          tags: {
-            some: {
-              name: args.tag ?? ''
-            }
-          }
+          city: args.city ?? undefined,
+          travel: args.travel ?? undefined,
+          ...(args.tag !== undefined
+            ? {
+                tags: {
+                  some: {
+                    name: args.tag ?? undefined
+                  }
+                }
+              }
+            : {})
+        },
+        orderBy: {
+          createdAt: 'desc'
         }
       })
     }
   })
 })
+
+// builder.queryField('imagesByTravel', (t) => {
+//   return t.prismaConnection({
+//     type: 'Image',
+//     cursor: 'id',
+//     totalCount: async (parent, args) => {
+//       return await prisma.image.count({
+//         where: {
+//           travel: args.travel ?? ''
+//         }
+//       })
+//     },
+//     args: {
+//       travel: t.arg.string()
+//     },
+//     resolve: async (query, parent, args) => {
+//       return await prisma.image.findMany({
+//         ...query,
+//         where: {
+//           travel: args.travel ?? ''
+//         },
+//         orderBy: {
+//           createdAt: 'desc'
+//         }
+//       })
+//     }
+//   })
+// })
