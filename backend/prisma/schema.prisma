@@ -27,6 +27,7 @@ model Image {
   createdAt   DateTime @default(now())
   tags        Tag[]
   type        String
+  travel      String?
 }
 
 model Tag {

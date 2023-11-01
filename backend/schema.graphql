@@ -14,17 +14,49 @@ type Image {
   name: String
   tags: [Tag!]!
   title: String
+  travel: String
   type: String!
   url: String
 }
 
 type Mutation {
-  createImage(city: String, country: String, description: String, location: String, locationUrl: String, name: String, title: String, type: String!, url: String): Image!
+  addImage(type: String!): Image!
 }
 
 type Query {
-  imagesByCity(city: String): [Image!]!
-  imagesByTag(tag: String): [Image!]!
+  imagesByCity(after: ID, before: ID, city: String, first: Int, last: Int): QueryImagesByCityConnection!
+  imagesByTag(after: ID, before: ID, first: Int, last: Int, tag: String): QueryImagesByTagConnection!
+  imagesByTravel(after: ID, before: ID, first: Int, last: Int, travel: String): QueryImagesByTravelConnection!
+}
+
+type QueryImagesByCityConnection {
+  edges: [QueryImagesByCityConnectionEdge]!
+  pageInfo: PageInfo!
+}
+
+type QueryImagesByCityConnectionEdge {
+  cursor: ID!
+  node: Image!
+}
+
+type QueryImagesByTagConnection {
+  edges: [QueryImagesByTagConnectionEdge]!
+  pageInfo: PageInfo!
+}
+
+type QueryImagesByTagConnectionEdge {
+  cursor: ID!
+  node: Image!
+}
+
+type QueryImagesByTravelConnection {
+  edges: [QueryImagesByTravelConnectionEdge]!
+  pageInfo: PageInfo!
+}
+
+type QueryImagesByTravelConnectionEdge {
+  cursor: ID!
+  node: Image!
 }
 
 type Tag {
