@@ -5,6 +5,7 @@ import { useMemo } from 'react'
 import { type Image } from '@/requests/types/imageResponse'
 import { Pagination } from '@/components/Pagination'
 import { useSearchParams } from 'react-router-dom'
+import { PageTitle } from './parts/PageTitle'
 
 interface PaginatedPhotoParams {
   city?: string
@@ -14,7 +15,7 @@ interface PaginatedPhotoParams {
 
 const DEFAULT_TAKE = 5
 
-export default function PaginatedPhoto({
+export function PaginatedPhoto({
   params,
   title,
 }: {
@@ -47,11 +48,7 @@ export default function PaginatedPhoto({
   return (
     <>
       <Box px="6" py="16">
-        {isFirstPage && (
-          <Heading as="h1" fontWeight="400" size="3xl">
-            {title}
-          </Heading>
-        )}
+        {isFirstPage && <PageTitle title={title} />}
       </Box>
       {photos?.map((item: any, index: number) => {
         return <Block item={item} key={index} />

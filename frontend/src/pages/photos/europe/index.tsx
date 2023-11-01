@@ -1,4 +1,4 @@
-import PaginatedPhoto from '@/components/Page/PaginatedPhoto'
+import { PaginatedPhoto } from '@/components/Page/PaginatedPhoto'
 
 export default function NewYorkPage() {
   return (

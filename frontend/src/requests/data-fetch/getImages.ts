@@ -21,8 +21,6 @@ export const getImages = async (
 
   const skip = (page - 1) * take
 
-  console.log('skip', skip)
-
   const result: any = await pRequest(gql`
   {
     images(${paramsToString} first: ${take}, skip: ${skip}) {
