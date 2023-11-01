@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_SERVER_URL: ${{ secrets.SERVER_URL }}
-    defaults:
-      run:
-        working-directory: './frontend'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -20,11 +17,13 @@ jobs:
         with:
           node-version: '16.x'
       - name: Install dependencies
+        working-directory: './frontend'
         run: yarn install
       - name: Build
+        working-directory: './frontend'
         run: yarn predeploy
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./frontend/dist
