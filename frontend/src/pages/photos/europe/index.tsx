@@ -1,11 +1,7 @@
-import { Box } from '@chakra-ui/react'
+import PaginatedPhoto from '@/components/Page/PaginatedPhoto'
 
-export default function EuropePage() {
+export default function NewYorkPage() {
   return (
-    <>
-      <Box px="6" py="16">
-        <div>페이지 준비 중입니다..</div>
-      </Box>
-    </>
+    <PaginatedPhoto params={{ travel: 'exchange' }} title={`2019 exchange`} />
   )
 }
