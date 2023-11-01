@@ -1,5 +1,5 @@
 import { Block } from '@/components/Block'
-import { Box, Heading } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { useGetImages } from '@/requests/use/useGetImages'
 import { useMemo } from 'react'
 import { type Image } from '@/requests/types/imageResponse'
