@@ -39,6 +39,7 @@ type Query {
 type QueryImagesByCityConnection {
   edges: [QueryImagesByCityConnectionEdge]!
   pageInfo: PageInfo!
+  totalCount: Int!
 }
 
 type QueryImagesByCityConnectionEdge {
@@ -49,6 +50,7 @@ type QueryImagesByCityConnectionEdge {
 type QueryImagesByTagConnection {
   edges: [QueryImagesByTagConnectionEdge]!
   pageInfo: PageInfo!
+  totalCount: Int!
 }
 
 type QueryImagesByTagConnectionEdge {
@@ -59,6 +61,7 @@ type QueryImagesByTagConnectionEdge {
 type QueryImagesByTravelConnection {
   edges: [QueryImagesByTravelConnectionEdge]!
   pageInfo: PageInfo!
+  totalCount: Int!
 }
 
 type QueryImagesByTravelConnectionEdge {

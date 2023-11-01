@@ -43,6 +43,13 @@ builder.queryField('imagesByCity', (t) => {
     args: {
       city: t.arg.string()
     },
+    totalCount: async (parent, args) => {
+      return await prisma.image.count({
+        where: {
+          city: args.city ?? ''
+        }
+      })
+    },
     resolve: async (query, parent, args) => {
       return await prisma.image.findMany({
         ...query,
@@ -61,6 +68,13 @@ builder.queryField('imagesByTravel', (t) => {
   return t.prismaConnection({
     type: 'Image',
     cursor: 'id',
+    totalCount: async (parent, args) => {
+      return await prisma.image.count({
+        where: {
+          travel: args.travel ?? ''
+        }
+      })
+    },
     args: {
       travel: t.arg.string()
     },
@@ -84,6 +98,17 @@ builder.queryField('imagesByTag', (t) => {
     cursor: 'id',
     args: {
       tag: t.arg.string()
+    },
+    totalCount: async (parent, args) => {
+      return await prisma.image.count({
+        where: {
+          tags: {
+            some: {
+              name: args.tag ?? ''
+            }
+          }
+        }
+      })
     },
     resolve: async (query, parent, args) => {
       return await prisma.image.findMany({
