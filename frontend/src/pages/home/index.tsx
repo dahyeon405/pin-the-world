@@ -3,20 +3,22 @@ import { EarthCanvas } from '@/components/EarthCanvas'
 import { CityPolaroidBoard } from '@/components/Polaroid/CityPolaroidBoard'
 import { Box, Heading, Spinner } from '@chakra-ui/react'
 import { ScrollDownIndicator } from './components/ScrollDownIndicator'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
   // react-three/drei 라이브러리에서,
   // OrbitControls 사용 시 touch action = none 으로 설정되는 오류가 있음 (터치 불가능)
   // 이슈 링크: https://github.com/pmndrs/drei/issues/1233
   // <Canvas> 컴포넌트 위에 <Box> 컴포넌트를 덮는 것으로 해결해놓음
-  const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    requestIdleCallback(() => {
-      setIsLoading(false)
-    })
-  }, [])
+  // requestIdleCallback 통해 로딩 끝났음을 감지하려 했으나 safari에서 작동하지 않으므로 폐기 :(
+  const [isLoading] = useState(false)
+
+  // useEffect(() => {
+  //   requestIdleCallback(() => {
+  //     setIsLoading(false)
+  //   })
+  // }, [])
 
   return (
     <>
@@ -37,13 +39,12 @@ export default function Home() {
             <EarthCanvas />
           </Canvas>
           {isLoading && (
-            <Box pos="absolute" top="40" w="100vw">
+            <Box pos="absolute" top="40" w="100vw" textAlign="center">
               <Spinner
                 size="xl"
                 thickness="4px"
                 speed="0.8s"
                 color="gray.500"
-                marginX="auto"
               />
             </Box>
           )}
