@@ -1,10 +1,9 @@
-import { polaroidsMap } from '@/constants/cityPolaroid'
-import { Polaroid } from './Polaroid'
 import { type Cities } from '@/constants'
 import { useEffect, useState } from 'react'
 import { useScroll } from '@/hooks'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
+import { CityPolaroidView } from './CityPolaroidView'
 
 export function CityPolaroid({
   cityName,
@@ -39,15 +38,7 @@ export function CityPolaroid({
           direction="column"
           width="100%"
         >
-          <Text
-            fontSize="5xl"
-            fontWeight="300"
-            mb="-5"
-            fontFamily="Clash Display"
-          >
-            {cityName}
-          </Text>
-          <Polaroid polaroidList={polaroidsMap[cityName]} size={300}></Polaroid>
+          <CityPolaroidView cityName={cityName} />
         </Flex>
       )}
     </AnimatePresence>
