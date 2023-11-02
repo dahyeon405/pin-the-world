@@ -25,7 +25,7 @@ export function ScrollDownIndicator(props: any) {
 
     timeoutId.current = setTimeout(() => {
       setIsVisible(true)
-    }, 3000)
+    }, 1500)
 
     return () => {
       clearTimeout(timeoutId.current)
