@@ -1,18 +1,21 @@
-import { useThree } from '@react-three/fiber'
-import { useRotateCameraOnScroll } from '@/hooks'
 import { Earth } from './Earth'
 import { OrbitControls } from '@react-three/drei'
-import { scrollCameraPositionMap, EARTH_RADIUS } from '@/constants'
+import { EARTH_RADIUS } from '@/constants'
 
 export const EarthCanvas = () => {
-  const { camera } = useThree()
+  /*
+   * 카메라 이동 로직 변경으로 더 이상 사용 X
+   * 아래 코드는 스크롤에 따라 카메라 이동하는 코드
+   */
 
-  const { setCameraPositions } = useRotateCameraOnScroll(
-    { x: 0, y: 0, z: 4 },
-    camera
-  )
+  // const { camera } = useThree()
 
-  setCameraPositions(scrollCameraPositionMap)
+  // const { setCameraPositions } = useRotateCameraOnScroll(
+  //   { x: 0, y: 0, z: 4 },
+  //   camera
+  // )
+
+  // setCameraPositions(scrollCameraPositionMap)
 
   return (
     <>
