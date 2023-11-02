@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber'
 import { EarthCanvas } from '@/components/EarthCanvas'
 import { CityPolaroidBoard } from '@/components/Polaroid/CityPolaroidBoard'
 import { Box, Heading } from '@chakra-ui/react'
+import { ScrollDownIndicator } from './components/ScrollDownIndicator'
 
 export default function Home() {
   // react-three/drei 라이브러리에서,
@@ -29,6 +30,7 @@ export default function Home() {
           <Box pos="fixed" top="32" w="100vw" h="100vw"></Box>
         </Box>
         <CityPolaroidBoard />
+        <ScrollDownIndicator pos="fixed" bottom="2rem" w="100vw" />
       </Box>
     </>
   )
