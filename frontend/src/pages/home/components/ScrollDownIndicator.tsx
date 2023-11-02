@@ -5,7 +5,7 @@ import { useScroll } from '@/hooks'
 import { useEffect, useRef, useState } from 'react'
 
 export function ScrollDownIndicator(props: any) {
-  const { y: scrollY } = useScroll()
+  const { y: scrollY } = useScroll(100)
   const [isVisible, setIsVisible] = useState(true)
   const timeoutId = useRef<any>(null)
 
@@ -19,7 +19,10 @@ export function ScrollDownIndicator(props: any) {
     setIsVisible(false)
 
     // 맨 아래에서는 나타나지 않음
-    if (window.innerHeight + scrollY >= document.documentElement.scrollHeight) {
+    if (
+      window.innerHeight + scrollY >=
+      document.documentElement.scrollHeight - 500
+    ) {
       return
     }
 
