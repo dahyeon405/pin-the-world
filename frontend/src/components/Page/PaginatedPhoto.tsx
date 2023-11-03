@@ -7,7 +7,7 @@ import { Pagination } from '@/components/Pagination'
 import { useSearchParams } from 'react-router-dom'
 import { PageTitle } from './parts/PageTitle'
 
-interface PaginatedPhotoParams {
+export interface PaginatedPhotoParams {
   city?: string
   travel?: string
   tag?: string

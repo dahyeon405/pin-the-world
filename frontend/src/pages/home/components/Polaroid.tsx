@@ -7,6 +7,7 @@ import {
   ModalContent,
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function Polaroid({
   city,
@@ -31,7 +32,11 @@ export function Polaroid({
     onClick()
   }
 
-  const onClickTitle = () => {}
+  const navigate = useNavigate()
+
+  const onClickTitle = () => {
+    navigate(`/photos?city=${city}&title=${city}`)
+  }
 
   return (
     <Modal isOpen={isVisible} onClose={onClickCloseButton}>
