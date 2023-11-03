@@ -66,7 +66,7 @@ export default function Home() {
           )}
           <Box pos="fixed" top="32" w="100vw" h="100vw"></Box>
         </Box>
-        <ScrollDownIndicator pos="absolute" top="calc(100vh - 80px)" />
+        <ScrollDownIndicator pos="absolute" top="calc(100vw + 96px)" />
         <Box pos="absolute" bottom="150" w="full">
           <CityButtonGroup onClick={onClickCityButton} />
         </Box>
