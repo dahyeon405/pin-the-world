@@ -32,7 +32,7 @@ export function Menu({
                   <MenuAccordionPanelItem>2019 Exchange</MenuAccordionPanelItem>
                 </Link>
                 <Link to={'/photos/new-york'}>
-                  <MenuAccordionPanelItem>2022 New York</MenuAccordionPanelItem>
+                  <MenuAccordionPanelItem>2022 NY & SF</MenuAccordionPanelItem>
                 </Link>
                 <Link to={'/photos?tag=film&title=film%0Aphotos'}>
                   <MenuAccordionPanelItem>film photos</MenuAccordionPanelItem>
