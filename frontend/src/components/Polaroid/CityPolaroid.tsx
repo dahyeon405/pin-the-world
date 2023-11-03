@@ -38,7 +38,7 @@ export function CityPolaroid({
           direction="column"
           width="100%"
         >
-          <CityPolaroidView cityName={cityName} />
+          <CityPolaroidView cityName={cityName} onClickTitle={() => {}} />
         </Flex>
       )}
     </AnimatePresence>
