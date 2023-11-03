@@ -41,7 +41,7 @@ export function Polaroid({
   return (
     <Modal isOpen={isVisible} onClose={onClickCloseButton}>
       <ModalOverlay />
-      <ModalContent background="transparent" pos="relative">
+      <ModalContent pos="relative" bg="none" shadow="none">
         <CloseButton
           background="white"
           borderRadius="999px"
