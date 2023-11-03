@@ -4,7 +4,7 @@ import {
   type PaginatedPhotoParams,
 } from '@/components/Page/PaginatedPhoto'
 
-export function CityPhotosPage() {
+export function PhotosPage() {
   const [searchParams] = useSearchParams()
   const title = searchParams.get('title') ?? ''
 

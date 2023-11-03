@@ -3,7 +3,7 @@ import EuropePage from '@/pages/photos/europe'
 import AboutPage from '@/pages/about'
 import MenuLayout from '@/layout/MenuLayout.tsx'
 import NewYorkPage from '@/pages/photos/newYork'
-import { CityPhotosPage } from '@/pages/photos/city'
+import { PhotosPage } from '@/pages/photos'
 
 export const menuRoutes = [
   {
@@ -24,7 +24,7 @@ export const menuRoutes = [
       },
       {
         path: '/photos',
-        element: <CityPhotosPage />,
+        element: <PhotosPage />,
       },
       {
         path: '/about',
