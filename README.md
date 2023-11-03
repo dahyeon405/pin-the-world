@@ -1,13 +1,13 @@
-<a href="https://dahyeon405.github.io/pin-the-world/" align="center">
+
 
 # 📍 Pin the world 🌎
 
-</a>
 
 <p>
 여행 사진을 음악과 함께 모아볼 수 있는
 인터랙티브 사이트입니다.<br>
-<i>아직 작업 중에 있습니다.</i>
+<i>계속 업데이트 중입니다 :)</i> <br>
+<a href="https://dahyeon405.github.io/pin-the-world/" align="center">🔗 링크</a>
 </p>
 
 <hr>
@@ -15,7 +15,7 @@
 ### 기술스택
 
 <div>
-React, Three.js, framer-motion, chakra-ui, Vite, Yarn
+React, Three.js, framer-motion, chakra-ui, Vite, Yarn, Express, Prisma, MySQL, GraphQL
 </div>
 
 ## Preview 🔍
