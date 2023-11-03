@@ -9,8 +9,10 @@ const ALPHA = 0.05
 export function RotatingCamera({
   targetCoordinate,
 }: {
-  targetCoordinate: [number, number]
+  targetCoordinate: [number, number] | null
 }) {
+  if (!targetCoordinate) return null
+
   const { camera } = useThree()
 
   const targetPositionToVector = convertCoordinateToVector(

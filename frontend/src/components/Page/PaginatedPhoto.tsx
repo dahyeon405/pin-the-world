@@ -13,7 +13,7 @@ interface PaginatedPhotoParams {
   tag?: string
 }
 
-const DEFAULT_TAKE = 5
+const DEFAULT_TAKE = 3
 
 export function PaginatedPhoto({
   params,

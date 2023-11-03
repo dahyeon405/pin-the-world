@@ -2,36 +2,17 @@ import { motion } from 'framer-motion'
 import { Flex, Text, keyframes } from '@chakra-ui/react'
 import arrowDown from '@/assets/arrow-down.svg'
 import { useScroll } from '@/hooks'
-import { useEffect, useRef, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function ScrollDownIndicator(props: any) {
   const { y: scrollY } = useScroll(100)
   const [isVisible, setIsVisible] = useState(true)
-  const timeoutId = useRef<any>(null)
 
-  // 처음에 나타나고, 이후 스크롤 3초 이상 안 움직이면 나타남
   useEffect(() => {
-    if (scrollY === 0) {
+    if (scrollY > 100) {
+      setIsVisible(false)
+    } else if (scrollY <= 100) {
       setIsVisible(true)
-      return
-    }
-
-    setIsVisible(false)
-
-    // 맨 아래에서는 나타나지 않음
-    if (
-      window.innerHeight + scrollY >=
-      document.documentElement.scrollHeight - 500
-    ) {
-      return
-    }
-
-    timeoutId.current = setTimeout(() => {
-      setIsVisible(true)
-    }, 1500)
-
-    return () => {
-      clearTimeout(timeoutId.current)
     }
   }, [scrollY])
 
@@ -55,6 +36,11 @@ export function ScrollDownIndicator(props: any) {
           gap="1rem"
           {...props}
           animation={animation}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          w="100%"
+          viewport={{ margin: '0px' }}
         >
           <Text
             fontSize="1xl"
