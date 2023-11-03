@@ -34,7 +34,7 @@ export function Menu({
                 <Link to={'/photos/new-york'}>
                   <MenuAccordionPanelItem>2022 New York</MenuAccordionPanelItem>
                 </Link>
-                <Link to={'/photos?tag=film'}>
+                <Link to={'/photos?tag=film&title=film%0Aphotos'}>
                   <MenuAccordionPanelItem>film photos</MenuAccordionPanelItem>
                 </Link>
               </AccordionPanel>
