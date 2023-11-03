@@ -23,6 +23,8 @@ export function PaginatedPhoto({
   title: string
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
+  const { city, travel, tag } = params
+
   const page = Number(searchParams.get('page')) || 1
 
   const { data } = useGetImages(params, DEFAULT_TAKE, page)
@@ -41,6 +43,10 @@ export function PaginatedPhoto({
   const onClickPage = (page: number) => {
     setSearchParams({
       page: String(page),
+      ...(city && { city }),
+      ...(travel && { travel }),
+      ...(tag && { tag }),
+      ...(title && { title }),
     })
     window.scrollTo(0, 0)
   }
