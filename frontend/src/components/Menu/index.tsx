@@ -29,12 +29,14 @@ export function Menu({
             <MenuAccordionItem text={'photos'}>
               <AccordionPanel pb={3}>
                 <Link to={'/photos/europe'}>
-                  <MenuAccordionPanelItem>2019 Europe</MenuAccordionPanelItem>
+                  <MenuAccordionPanelItem>2019 Exchange</MenuAccordionPanelItem>
                 </Link>
                 <Link to={'/photos/new-york'}>
                   <MenuAccordionPanelItem>2022 New York</MenuAccordionPanelItem>
                 </Link>
-                <MenuAccordionPanelItem>Etc.</MenuAccordionPanelItem>
+                <Link to={'/photos?tag=film'}>
+                  <MenuAccordionPanelItem>film photos</MenuAccordionPanelItem>
+                </Link>
               </AccordionPanel>
             </MenuAccordionItem>
           </Accordion>
