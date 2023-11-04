@@ -41,7 +41,7 @@ export function Polaroid({
   return (
     <Modal isOpen={isVisible} onClose={onClickCloseButton}>
       <ModalOverlay />
-      <ModalContent pos="relative" bg="none" shadow="none">
+      <ModalContent pos="relative" bg="none" shadow="none" width="324px">
         <CloseButton
           background="white"
           borderRadius="999px"
@@ -49,7 +49,7 @@ export function Polaroid({
           onClick={onClickCloseButton}
           size="sm"
           pos="absolute"
-          right="calc((100vw - 324px)/2)"
+          right="0px"
         />
         <CityPolaroidView
           cityName={city as Cities}

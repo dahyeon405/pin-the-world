@@ -12,7 +12,7 @@ export function CityPolaroidView({
 }) {
   return (
     <Flex align="center" direction="column" width="100%">
-      <Flex align="center" width="300px" mb="-2">
+      <Flex justify="left" align="center" mb="-2" width="100%">
         <Button
           fontSize="3xl"
           fontWeight="300"
