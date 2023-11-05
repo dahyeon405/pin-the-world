@@ -33,6 +33,8 @@ export const getImages = async (
           locationUrl
           description
           type
+          city
+          country
         }
         cursor
       }
