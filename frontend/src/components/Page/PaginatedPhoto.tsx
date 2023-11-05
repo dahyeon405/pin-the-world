@@ -52,14 +52,18 @@ export function PaginatedPhoto({
   }
 
   return (
-    <>
-      <Box px="6" py="16">
-        {isFirstPage && <PageTitle title={title} />}
+    <Box mt="16">
+      {isFirstPage && (
+        <Box px="6" mb="8">
+          <PageTitle title={title} />
+        </Box>
+      )}
+      <Box>
+        {photos?.map((item: any, index: number) => {
+          return <Block item={item} key={index} />
+        })}
       </Box>
-      {photos?.map((item: any, index: number) => {
-        return <Block item={item} key={index} />
-      })}
-      <Box mt="4" mb="24">
+      <Box mb="24">
         {isMultiplePage && (
           <Pagination
             pageCount={pageCount}
@@ -68,6 +72,6 @@ export function PaginatedPhoto({
           />
         )}
       </Box>
-    </>
+    </Box>
   )
 }
