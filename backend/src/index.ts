@@ -4,7 +4,7 @@ import { createServer } from 'http'
 import { schema } from './schema'
 
 const yoga = createYoga({
-  graphqlEndpoint: '/',
+  graphqlEndpoint: '/api',
   schema,
   context: (req) => {
     return {
