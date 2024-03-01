@@ -1,29 +1,23 @@
+name: frontend CD
 on:
   push:
-    branches: [ main ]
-    paths:
-      - 'frontend/**'
-
+    branches: ['main']
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    env:
-      VITE_SERVER_URL: ${{ secrets.SERVER_URL }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+
+      - name: execute remote ssh & deploy frontend server
+        uses: appleboy/ssh-action@master
         with:
-          node-version: '16.x'
-      - name: Install dependencies
-        working-directory: './frontend'
-        run: yarn install
-      - name: Build
-        working-directory: './frontend'
-        run: yarn predeploy
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist
+          host: ${{ secrets.REMOTE_SSH_HOST }}
+          username: ${{ secrets.REMOTE_SSH_USERNAME }}
+          password: ${{ secrets.REMOTE_SSH_PASSWORD }}
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            cd /pin-the-world
+            sudo git pull origin main
+            cd frontend
+            yarn install
+            yarn build
