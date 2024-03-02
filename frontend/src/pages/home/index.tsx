@@ -66,7 +66,7 @@ export default function Home() {
               />
             </Box>
           )}
-          <Box pos="fixed" top="32" w="100vw" h="100vw"></Box>
+          <Box pos="fixed" top="0" w="100vw" h="100vh"></Box>
         </Box>
         <ScrollDownIndicator pos="absolute" top="calc(100vh - 96px)" />
         <BoardingPass onSelect={onClickCityButton} show={showBoardingPass} />
