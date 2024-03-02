@@ -24,9 +24,9 @@ export function CityPolaroidView({
         >
           {cityName}
         </Button>
-        <Text fontFamily="Clash Display" fontSize="sm" color="white">
+        {/* <Text fontFamily="Clash Display" fontSize="sm" color="white">
           👈 Click
-        </Text>
+        </Text> */}
       </Flex>
 
       <Polaroid polaroidList={polaroidsMap[cityName]} size={300}></Polaroid>

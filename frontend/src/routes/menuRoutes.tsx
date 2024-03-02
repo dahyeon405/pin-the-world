@@ -4,6 +4,7 @@ import AboutPage from '@/pages/about'
 import MenuLayout from '@/layout/MenuLayout.tsx'
 import NewYorkPage from '@/pages/photos/newYork'
 import { PhotosPage } from '@/pages/photos'
+import PinsPage from '@/pages/photos/pins'
 
 export const menuRoutes = [
   {
@@ -29,6 +30,10 @@ export const menuRoutes = [
       {
         path: '/about',
         element: <AboutPage />,
+      },
+      {
+        path: '/photos/pins',
+        element: <PinsPage />,
       },
     ],
   },

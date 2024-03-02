@@ -4,9 +4,9 @@ import { Box, Heading, Spinner } from '@chakra-ui/react'
 import { useState } from 'react'
 import { RotatingCamera } from '@/components/RotatingCamera'
 import { type Cities, cityCoordinates } from '@/constants'
-import { CityButtonGroup } from './components/CityButton/CityButtonGroup'
 import { ScrollDownIndicator } from './components/ScrollDownIndicator'
 import { Polaroid } from './components/Polaroid'
+import { BoardingPass } from './components/BoardingPass'
 
 export default function Home() {
   // react-three/drei 라이브러리에서,
@@ -24,6 +24,8 @@ export default function Home() {
   // }, [])
 
   const [selectedCity, setSelectedCity] = useState<null | Cities>(null)
+  const showBoardingPass = selectedCity !== null
+
   const cameraPosition = selectedCity
     ? (cityCoordinates[selectedCity] as [number, number])
     : ([-90, 0] as [number, number])
@@ -45,9 +47,9 @@ export default function Home() {
           Pin the <br /> World
         </Heading>
 
-        <Box pos="fixed" top="32" w="100vw" h="100vw">
+        <Box pos="fixed" top="0" w="100vw" h="100vh">
           <Canvas
-            camera={{ fov: 45, near: 0.1, far: 1000, position: [4, 0, 4] }}
+            camera={{ fov: 60, near: 0.1, far: 1000, position: [4, 0, 4] }}
           >
             <pointLight position={[0, 0, 3]} />
             <EarthCanvas />
@@ -66,10 +68,9 @@ export default function Home() {
           )}
           <Box pos="fixed" top="32" w="100vw" h="100vw"></Box>
         </Box>
-        <ScrollDownIndicator pos="absolute" top="calc(100vw + 96px)" />
-        <Box pos="absolute" bottom="150" w="full">
-          <CityButtonGroup onClick={onClickCityButton} />
-        </Box>
+        <ScrollDownIndicator pos="absolute" top="calc(100vh - 96px)" />
+        <BoardingPass onSelect={onClickCityButton} show={showBoardingPass} />
+
         <Polaroid
           onClickCloseButton={() => {
             setSelectedCity(null)

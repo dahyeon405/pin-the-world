@@ -33,6 +33,7 @@ export function CityCountrytag({
         background="red.50"
         px="8px"
         borderRadius="20px"
+        whiteSpace="nowrap"
       >
         {countryEmoji} {city}
       </Text>
