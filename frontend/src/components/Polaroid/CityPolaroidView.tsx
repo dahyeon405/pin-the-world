@@ -1,4 +1,4 @@
-import { Flex, Button, Text } from '@chakra-ui/react'
+import { Flex, Button } from '@chakra-ui/react'
 import { Polaroid } from './Polaroid'
 import { polaroidsMap } from '@/constants/cityPolaroid'
 import { type Cities } from '@/constants'
