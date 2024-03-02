@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { EarthCanvas } from '@/components/EarthCanvas'
 import { Box, Heading, Spinner } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RotatingCamera } from '@/components/RotatingCamera'
 import { type Cities, cityCoordinates } from '@/constants'
 import { ScrollDownIndicator } from './components/ScrollDownIndicator'
@@ -34,6 +34,13 @@ export default function Home() {
     setSelectedCity(cityName)
   }
 
+  const [canvasHeight, setCanvasHeight] = useState(0)
+
+  useEffect(() => {
+    // 캔버스 높이를 최초 window.innerHeight로 설정
+    setCanvasHeight(window.innerHeight)
+  }, [])
+
   return (
     <>
       <Box
@@ -47,7 +54,7 @@ export default function Home() {
           Pin the <br /> World
         </Heading>
 
-        <Box pos="fixed" top="0" w="100vw" h="100vh">
+        <Box pos="fixed" top="0" w="100vw" h={canvasHeight}>
           <Canvas
             camera={{ fov: 60, near: 0.1, far: 1000, position: [4, 0, 4] }}
           >
