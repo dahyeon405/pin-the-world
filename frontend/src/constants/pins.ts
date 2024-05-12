@@ -15,7 +15,7 @@ export const cityPins = [
   { country: 'France', city: ['Paris'] },
   { country: 'Germany', city: ['Berlin'] },
   { country: 'Italy', city: ['Venice', 'Milan'] },
-  { country: 'Japan', city: ['Sapporo'] },
+  { country: 'Japan', city: ['Sapporo', 'Tokyo'] },
   { country: 'Korea', city: ['Seoul', 'Jeju', 'Gyeongju'] },
   { country: 'USA', city: ['New York', 'Sanfrancisco'] },
   { country: 'Czech', city: ['Praha', 'Cesky Krumlov'] },
