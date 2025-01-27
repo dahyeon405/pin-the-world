@@ -4,7 +4,7 @@ import arrowDown from '@/assets/arrow-down.svg'
 import { useScroll } from '@/hooks'
 import { useState, useEffect } from 'react'
 
-export function ScrollDownIndicator(props: any) {
+export function ScrollDownIndicator() {
   const { y: scrollY } = useScroll(100)
   const [isVisible, setIsVisible] = useState(true)
 
