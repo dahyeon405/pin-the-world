@@ -34,13 +34,15 @@ export function ScrollDownIndicator(props: any) {
           direction="column"
           align="center"
           gap="1rem"
-          {...props}
           animation={animation}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           w="100%"
           viewport={{ margin: '0px' }}
+          position="absolute"
+          top="calc(100vh - env(safe-area-inset-bottom) - 6rem)"
+          zIndex={999}
         >
           <Text
             fontSize="1xl"

@@ -75,7 +75,7 @@ export default function Home() {
           )}
           <Box pos="fixed" top="0" w="100vw" h="100vh"></Box>
         </Box>
-        <ScrollDownIndicator pos="absolute" top="calc(100vh - 96px)" />
+        <ScrollDownIndicator />
         <BoardingPass onSelect={onClickCityButton} show={showBoardingPass} />
 
         <Polaroid

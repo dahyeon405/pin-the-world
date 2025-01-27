@@ -21,6 +21,11 @@ export function Menu({
       <DrawerContent>
         <DrawerCloseButton top="3" />
         <DrawerBody mt="16">
+          <Link to={'/photos/paris2024'}>
+            <MenuAccordionPanelItem>
+              2024 Paris & Copenhagen
+            </MenuAccordionPanelItem>
+          </Link>
           <Link to={'/photos/europe'}>
             <MenuAccordionPanelItem>2019 Exchange</MenuAccordionPanelItem>
           </Link>
@@ -29,6 +34,9 @@ export function Menu({
           </Link>
           <Link to={'/photos?tag=film&title=film%0Aphotos'}>
             <MenuAccordionPanelItem>film photos</MenuAccordionPanelItem>
+          </Link>
+          <Link to={'/photos?tag=daily&title=daily%20life'}>
+            <MenuAccordionPanelItem>daily life</MenuAccordionPanelItem>
           </Link>
           <Link to={'/photos/pins'}>
             <MenuAccordionPanelItem>More Pins 📍</MenuAccordionPanelItem>

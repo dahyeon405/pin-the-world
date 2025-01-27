@@ -5,6 +5,7 @@ import MenuLayout from '@/layout/MenuLayout.tsx'
 import NewYorkPage from '@/pages/photos/newYork'
 import { PhotosPage } from '@/pages/photos'
 import PinsPage from '@/pages/photos/pins'
+import Paris2024Page from '@/pages/photos/paris2024'
 
 export const menuRoutes = [
   {
@@ -18,6 +19,10 @@ export const menuRoutes = [
       {
         path: '/photos/europe',
         element: <EuropePage />,
+      },
+      {
+        path: '/photos/paris2024',
+        element: <Paris2024Page />,
       },
       {
         path: '/photos/new-york',
