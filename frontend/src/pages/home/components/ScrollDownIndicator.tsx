@@ -40,8 +40,8 @@ export function ScrollDownIndicator() {
           exit={{ opacity: 0 }}
           w="100%"
           viewport={{ margin: '0px' }}
-          position="absolute"
-          top="calc(100vh - env(safe-area-inset-bottom) - 8rem)"
+          position="fixed"
+          bottom="max(env(safe-area-inset-bottom, 24px), 24px)"
           zIndex={999}
         >
           <Text
