@@ -21,6 +21,9 @@ export function Menu({
       <DrawerContent>
         <DrawerCloseButton top="3" />
         <DrawerBody mt="16">
+          <Link to={'/photos/sanfran2025'}>
+            <MenuAccordionPanelItem>2025 San Francisco</MenuAccordionPanelItem>
+          </Link>
           <Link to={'/photos/paris2024'}>
             <MenuAccordionPanelItem>
               2024 Paris & Copenhagen

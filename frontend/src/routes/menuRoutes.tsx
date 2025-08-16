@@ -6,6 +6,7 @@ import NewYorkPage from '@/pages/photos/newYork'
 import { PhotosPage } from '@/pages/photos'
 import PinsPage from '@/pages/photos/pins'
 import Paris2024Page from '@/pages/photos/paris2024'
+import Sanfran2025Page from '@/pages/photos/sanfran2025'
 
 export const menuRoutes = [
   {
@@ -39,6 +40,10 @@ export const menuRoutes = [
       {
         path: '/photos/pins',
         element: <PinsPage />,
+      },
+      {
+        path: '/photos/sanfran2025',
+        element: <Sanfran2025Page />,
       },
     ],
   },

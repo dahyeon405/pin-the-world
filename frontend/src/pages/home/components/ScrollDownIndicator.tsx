@@ -41,7 +41,7 @@ export function ScrollDownIndicator() {
           w="100%"
           viewport={{ margin: '0px' }}
           position="absolute"
-          top="calc(100vh - env(safe-area-inset-bottom) - 6rem)"
+          top="calc(100vh - env(safe-area-inset-bottom) - 8rem)"
           zIndex={999}
         >
           <Text
